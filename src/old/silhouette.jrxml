@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="silhouette" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="d9e2ae83-62f1-4312-8f6d-4dedb9e34811">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1987"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[select * from orders]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer"/>
+	<field name="CUSTOMERID" class="java.lang.String"/>
+	<field name="EMPLOYEEID" class="java.lang.Integer"/>
+	<field name="ORDERDATE" class="java.sql.Timestamp"/>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPVIA" class="java.lang.Integer"/>
+	<field name="FREIGHT" class="java.math.BigDecimal"/>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="SHIPADDRESS" class="java.lang.String"/>
+	<field name="SHIPCITY" class="java.lang.String"/>
+	<field name="SHIPREGION" class="java.lang.String"/>
+	<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{SHIPCOUNTRY}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement uuid="6586b923-86a0-498d-b678-094c0c2002fe" x="143" y="13" width="410" height="24" forecolor="#000000"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="80620b53-4caf-45de-9ced-ff2ec86bb26d" mode="Opaque" x="97" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<rectangle>
+					<reportElement uuid="116c24ae-3057-4a34-93b4-b001de03282d" x="407" y="0" width="148" height="30" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</rectangle>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="822" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement uuid="70233a8f-9585-4890-8a58-29ed9badeb9a" positionType="Float" mode="Opaque" x="1" y="315" width="85" height="409" backcolor="#000000"/>
+				<imageExpression><![CDATA["silhouette.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement uuid="942785d3-8c34-40c2-a5da-9304031aaf19" positionType="Float" x="-20" y="315" width="19" height="409" backcolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="bce40a7f-59c2-43bc-916c-919c77fe31cb" x="-20" y="724" width="106" height="97" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="3f395505-7c94-471e-a68a-99356656ced5" mode="Transparent" x="23" y="775" width="20" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="6d3e7371-a2c5-410d-b552-e0ce7e9c7a24" positionType="Float" x="-20" y="741" width="106" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="36a0d951-a6b7-48a3-955e-db9ac499b694" x="-20" y="779" width="106" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="152" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="71c373ab-8024-47e2-858e-660577a714b5" x="0" y="0" width="555" height="115"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[SILHOUETTE TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d6a35f67-1352-4296-a451-0294b5238fc3" x="234" y="115" width="321" height="37" forecolor="#666666"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Silhouette SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="575dad8f-b071-46c7-8d48-ea2874069ea8" x="96" y="5" width="457" height="20" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="20a99096-24d6-495a-8e28-005d9337a226" style="Column header" x="97" y="8" width="95" height="15"/>
+				<textElement/>
+				<text><![CDATA[ORDERDATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d68f2b5-dca3-4964-b98f-64cc98a7ed60" style="Column header" x="255" y="8" width="95" height="15"/>
+				<textElement/>
+				<text><![CDATA[SHIPNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d271b566-458a-4692-8ab6-7e48b6ce31ef" style="Column header" x="405" y="8" width="95" height="15"/>
+				<textElement/>
+				<text><![CDATA[FREIGHT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="98253066-f910-4e17-b104-e57124c38ac0" x="102" y="0" width="90" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="f8ed8ebf-70c4-44bc-9b0b-6e067b55c654" positionType="FixRelativeToBottom" x="97" y="16" width="458" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="4d8646e9-c4a9-4c38-8a35-4375a46def47" x="255" y="0" width="90" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="172b5668-254a-4333-b787-eeccfb923a49" x="405" y="0" width="90" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="100" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="33664175-8fa9-49cd-81a0-773494fafe1c" style="Column header" x="424" y="0" width="131" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="59db2eb5-7b48-4e8f-81d7-a2e33b0a63cc" style="Column header" x="96" y="0" width="267" height="20" forecolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

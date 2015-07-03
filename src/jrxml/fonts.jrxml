@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fonts" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="718f4a94-3d49-48b0-881b-29c70b6746e4">
+	<property name="ireport.callouts" value="##Thu Jan 21 15:15:38 CET 2010\ncallouts.2.pins=503,404;503,347;503,287;\ncallouts.2.text=Safe system independent characters\ncallouts.1.text=Use an Empty datasource to run this report\ncallouts.2.bounds=551,332,152,53\ncallouts.1.bounds=349,-1,262,40"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<queryString>
+		<![CDATA[select * from orders]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer"/>
+	<field name="CUSTOMERID" class="java.lang.String"/>
+	<field name="EMPLOYEEID" class="java.lang.Integer"/>
+	<field name="ORDERDATE" class="java.sql.Timestamp"/>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPVIA" class="java.lang.Integer"/>
+	<field name="FREIGHT" class="java.math.BigDecimal"/>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="SHIPADDRESS" class="java.lang.String"/>
+	<field name="SHIPCITY" class="java.lang.String"/>
+	<field name="SHIPREGION" class="java.lang.String"/>
+	<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="520" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7268ce03-9558-45d2-bc09-8e0415dc5a8b" x="0" y="339" width="555" height="44"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times" size="26"/>
+				</textElement>
+				<text><![CDATA[Times]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ede4fe6c-c740-4f3e-b8b4-32cf17282d05" x="0" y="277" width="555" height="44"/>
+				<textElement textAlignment="Center">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[SansSerif (default font)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94f9dd5e-d0a6-4bc0-ae1d-d2fe3362586c" x="0" y="1" width="555" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="20" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fonts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="91bf99a0-6d2c-4ae2-8bfc-677b1e6935d4" x="0" y="32" width="555" height="27"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[In iReport you can use all the system fonts you want, but to maximize the portability of the documents we suggest to use TTF Fonts installed using Tools > Options > iReport > Fonts. In this way fonts can be exported as font extensions for JasperReports and deployed as jar in any application.
+JasperReports provides a built-in font extension for the DejaVu fonts (Sans, Serif and Mono) which work well with all the character sets and are correctly displayed in PDF documents as well.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="973d6f13-5ae3-4f5a-9fdd-eed02001ae23" x="0" y="403" width="555" height="42"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier" size="26"/>
+				</textElement>
+				<text><![CDATA[Courier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b8d7f6f3-d368-49f8-9bf6-64c3d9c74a92" x="0" y="462" width="555" height="42"/>
+				<textElement textAlignment="Center">
+					<font fontName="Helvetica" size="20"/>
+				</textElement>
+				<text><![CDATA[Helvetica]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="241" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

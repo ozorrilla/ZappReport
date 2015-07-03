@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="groups" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66b1c8df-fefc-4788-a80e-3f5e806f3c9f">
+	<property name="ireport.callouts" value="##Tue Aug 19 10:24:54 EDT 2014\ncallouts.4.text=Sum of FREIGHT with reset type group Country_First_letter\ncallouts.4.bounds=266,318,150,75\ncallouts.1.text=Use the Sample Database (HSQLDB test) datasource to run this report.\nTo run the database, select Help &gt; Samples &gt; Run Sample Database.\ncallouts.3.pins=559,257;\ncallouts.3.bounds=408,183,159,58\ncallouts.2.text=The evaluation time of this textfield is set to AUTO, to let JasperReports figure it out when the group is going to start. An alternative is to print directly the expression used for the gruop without relay to a variable.\ncallouts.4.pins=559,297;\ncallouts.2.bounds=156,235,209,114\ncallouts.1.bounds=361,16,235,90\ncallouts.3.text=Sum of FREIGHT with reset type group Country\ncallouts.2.pins=105,135;"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from  orders order by shipcountry]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUSTOMERID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EMPLOYEEID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ORDERDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPVIA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FREIGHT" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPADDRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPCITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPREGION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPPOSTALCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPCOUNTRY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="FREIGHT_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Country" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<variable name="FREIGHT_2" class="java.math.BigDecimal" resetType="Group" resetGroup="Country_First_letter" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<variable name="First_Letter" class="java.lang.String" resetType="Group" resetGroup="Country_First_letter">
+		<variableExpression><![CDATA[$evaluate = $values[$index]["SHIPCOUNTRY"] == NULL || strlen($values[$index]["SHIPCOUNTRY"]) == 0 ? "" : substr($values[$index]["SHIPCOUNTRY"], 0, 1);]]></variableExpression>
+	</variable>
+	<variable name="FREIGHT_SUM" class="java.math.BigDecimal" resetType="Group" resetGroup="Country_First_letter" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<group name="Country_First_letter" isStartNewColumn="true" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$evaluate = $values[$index]["SHIPCOUNTRY"] == NULL || strlen($values[$index]["SHIPCOUNTRY"]) == 0 ? "" : substr($values[$index]["SHIPCOUNTRY"], 0, 1);]]></groupExpression>
+		<groupHeader>
+			<band height="76">
+				<textField evaluationTime="Group" evaluationGroup="Country_First_letter">
+					<reportElement uuid="ea0550db-81ef-446a-b5c3-0155c4a9d000" mode="Opaque" x="3" y="0" width="85" height="74" backcolor="#F9AAAA"/>
+					<textElement textAlignment="Center">
+						<font size="52" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{First_Letter}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<textField>
+					<reportElement uuid="be4e327b-c935-4e63-b2df-9fbbf69aabad" mode="Opaque" x="454" y="11" width="100" height="20" backcolor="#FFC9C9"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{FREIGHT_2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="f02d210d-6947-48fd-8d4d-f75c149ff562" mode="Opaque" x="59" y="11" width="395" height="20" backcolor="#FFC9C9"/>
+					<textElement textAlignment="Right" markup="none">
+						<font size="12" isStrikeThrough="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total freight of orders in country starting with the letter " + $V{First_Letter}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Country">
+		<groupExpression><![CDATA[$F{SHIPCITY}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<textField>
+					<reportElement uuid="4cd47f72-ad33-404f-b8d1-38e1246ed9fe" mode="Opaque" x="0" y="0" width="554" height="36" forecolor="#000000" backcolor="#EDECEC"/>
+					<textElement>
+						<font size="24"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="32">
+				<textField>
+					<reportElement uuid="aab07c67-f232-4ec8-a9f6-0ef3b01d2454" mode="Opaque" x="455" y="10" width="100" height="20" backcolor="#EDECEC"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{FREIGHT_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="a554887f-9d47-4b92-af26-ced1063943ea" mode="Opaque" x="60" y="10" width="395" height="20" backcolor="#EDECEC"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Total freight in this country:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<image>
+				<reportElement uuid="f82af333-2f85-43ff-837e-26aab6bd8852" x="11" y="11" width="100" height="88"/>
+				<imageExpression><![CDATA["coffee.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="f2301639-62b4-4679-a647-14275a2692bf" x="150" y="33" width="289" height="40"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAISES CONSUMIDORES DE CAFE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e8df8ff3-eb5f-4c63-845e-7200151de515" x="455" y="8" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of  "+$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="552e1804-1e72-45ea-918f-ca561749532d" x="0" y="6" width="555" height="24" forecolor="#FFFFFF" backcolor="#000000"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="e00bf9a4-0c30-4880-b8c9-5521f807b793" x="281" y="7" width="78" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bfb988ac-ee40-4f54-918e-c79def08997b" x="454" y="7" width="100" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="196dee3e-8e49-4d5d-9e24-49441874e270" x="169" y="7" width="86" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ccd696c4-a5ac-440a-83e0-3d996d03a85a" x="58" y="7" width="86" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e70bc253-c65e-4110-9908-5c7d37484d1a" x="373" y="8" width="66" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b363b5e7-7903-4b8b-bbe4-36e40a4a5750" x="3" y="8" width="55" height="22" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ed489742-5872-44d5-b3ae-b3cb4c872275" x="169" y="3" width="112" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fb57b69e-843b-4614-b588-53056165c6b9" x="281" y="3" width="78" height="20" printWhenGroupChanges="Country_First_letter"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="289c1a3d-7991-4446-924c-e6903bb2c07b" x="58" y="3" width="86" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="38534e11-fabc-4e1e-a566-aec375da9545" x="454" y="3" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="Country_First_letter" pattern="#,##0.000 %">
+				<reportElement uuid="ac4083f8-7291-459d-9cf0-3259245900b6" x="373" y="3" width="66" height="20"/>
+				<textElement>
+					<font isStrikeThrough="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$evaluate  = $F{FREIGHT} / $V{FREIGHT_1};]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="99ebbe4e-1821-41e6-9645-e89433bb81fd" x="3" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a903fd45-e2fa-4446-ba08-9a0acb05953e" x="231" y="18" width="175" height="20"/>
+				<textElement/>
+				<text><![CDATA[Column Footer in pruf]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="da8009fa-670c-45f2-abeb-0921fcd4be7b" x="231" y="15" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c26af657-92ad-4188-87ef-749aebd5db80" x="455" y="35" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of  "+$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="9b4235c1-d857-43fa-b2c5-52fe3d1dd691" x="0" y="6" width="455" height="56"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="67" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="98ff33f2-b100-4ddb-835a-a6b9de52d930" x="170" y="23" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8e6b2941-9046-42ed-8aa1-c2df6a9adbe5" x="214" y="33" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="aab0f758-df1d-4826-a45c-ca5f9d265b12" x="288" y="22" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0f4a3fa1-e618-4761-8f44-65c74dedf76b" x="100" y="13" width="100" height="20"/>
+			</rectangle>
+		</band>
+	</summary>
+</jasperReport>

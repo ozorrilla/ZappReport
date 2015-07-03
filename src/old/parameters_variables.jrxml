@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parameters_and_variables" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5fc6f5d-ff8f-4749-83b2-b7bbfe49495c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Sat Feb 16 10:22:57 EST 2013\ncallouts.4.text=Use the Sample Database (HSQLDB test) datasource to run this report.\nTo run the database, select Help &gt; Samples &gt; Run Sample Database.\ncallouts.4.bounds=24,344,220,78\ncallouts.1.text=FREIGHT_IN_REPORT is a variable used to sum the field FREIGHT.\ncallouts.3.pins=226,165;\ncallouts.3.bounds=330,96,150,75\ncallouts.2.text=FREIGHT_IN_REPORT is a variable used to sum the field FREIGHT. The variable value is reset for each page.\ncallouts.2.bounds=602,160,150,88\ncallouts.1.pins=411,297;\ncallouts.1.bounds=386,396,150,75\ncallouts.3.text=Country is a parameter. The value is provided by the user.\ncallouts.2.pins=554,253;"/>
+	<parameter name="Country" class="java.lang.String">
+		<parameterDescription><![CDATA[I.e. Italy]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from orders where shipcountry like $P{Country}]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CUSTOMERID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EMPLOYEEID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ORDERDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPVIA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FREIGHT" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPADDRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPCITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPREGION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPPOSTALCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPCOUNTRY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="FREIGHT_IN_PAGE" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<variable name="FREIGHT_IN_REPORT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<variable name="FREIGHT_SUM" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<variable name="variable1" class="java.math.BigDecimal" resetType="None" calculation="Count">
+		<variableExpression><![CDATA[$F{SHIPNAME}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="188" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1bc7f9cd-e49a-4596-8c99-2593d56e823b" x="0" y="0" width="555" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="20" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Parameters and Variables]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fa98662a-a690-4a20-8bca-425d48ae8231" x="0" y="31" width="555" height="22"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Parameters are objects provided by the user that can be used inside the report in several ways, in example to filter a query or provide the url for an image.
+Variables are used to perform calculations, like totals, counts, etc...]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e53ea467-ed01-4364-a05a-2ec260a8fc8b" x="0" y="118" width="100" height="19"/>
+				<textElement/>
+				<text><![CDATA[Orders for country:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f2778327-d7d7-4269-a35f-18b1c05850dc" x="0" y="137" width="228" height="39"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Country}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Page" pattern="">
+				<reportElement uuid="0002dd99-b108-43bb-b247-6aa3e7ca4c29" x="447" y="156" width="100" height="20">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_COUNT}%2==0)]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="11073dc1-0cff-43d6-905f-4a2a8308ad10" x="445" y="98" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cb0fc1f2-59a3-4fd0-af46-06f677264038" x="347" y="0" width="92" height="20"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="69e279c8-cc53-4411-899c-9d2d27aa91b8" x="105" y="0" width="116" height="20"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8a8b57a6-077f-4b2f-a944-a14bf315f9e2" x="455" y="0" width="100" height="20"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Freight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b90c8b90-8390-4acc-a391-425226dad4c2" x="228" y="0" width="101" height="20"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expression]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0970a1e5-1cf2-44f3-a84d-0d26055951c3" x="1" y="1" width="100" height="20"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="c2cb78ed-e3a5-47ca-bd25-a2a1e08321bb" x="1" y="2" width="554" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement uuid="d552be80-5706-4a99-b2fe-ca32d0bab846" x="0" y="2" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto">
+				<reportElement uuid="f7574da6-5d9e-4091-9a94-796551e78122" x="105" y="2" width="123" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f72abc62-ba7a-460f-97bd-66cd4d9989c4" x="455" y="2" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="ffabfc2b-1e06-4cb7-9ed7-421ded045c79" positionType="FixRelativeToBottom" x="0" y="24" width="555" height="1" forecolor="#CCCCCC"/>
+			</line>
+			<textField evaluationTime="Page" pattern="#,##0.00%">
+				<reportElement uuid="5338cab8-9fd3-4f41-9189-608b0b531cef" x="229" y="2" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$evaluate = $F{FREIGHT} *100 / $V{FREIGHT_IN_REPORT};]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fd2b8087-10e4-48cf-9f5e-9b5d133b0028" mode="Opaque" x="347" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="985ff586-a8b6-41f8-8295-8a14730bf376" x="0" y="0" width="555" height="7" backcolor="#FF9900"/>
+			</rectangle>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="###0.00;-###0.00">
+				<reportElement uuid="56c8b575-9704-4b61-b70a-9535271a681b" mode="Opaque" x="395" y="0" width="160" height="25" backcolor="#FFC9C9"/>
+				<box leftPadding="4" rightPadding="4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{FREIGHT_IN_PAGE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0941b441-53dd-45c0-8e9a-2a53d110d1ed" mode="Opaque" x="0" y="0" width="395" height="25" backcolor="#FFC9C9"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total freight in this page:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="149f3a4c-d8d9-44ed-a3bd-0c253c2b3bcb" mode="Opaque" x="139" y="0" width="100" height="25" backcolor="#FFC9C9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$evaluate = $V{variable1}*10;]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="189affd3-b30c-4712-ac01-8fd3d8624c35" mode="Opaque" x="0" y="10" width="395" height="20" backcolor="#E7CEAE"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total freight in this report:]]></text>
+			</staticText>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement uuid="4aea7b3f-15aa-4a97-acd6-c039b98c63a9" mode="Opaque" x="395" y="10" width="160" height="20" backcolor="#E7CEAE"/>
+				<box leftPadding="4" rightPadding="4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{FREIGHT_IN_REPORT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

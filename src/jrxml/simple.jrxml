@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report246" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6dd102aa-f205-4d9c-becc-147c9347390e">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Thu Aug 28 13:01:52 EDT 2014"/>
+	<queryString>
+		<![CDATA[select * from orders]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer"/>
+	<field name="CUSTOMERID" class="java.lang.String"/>
+	<field name="EMPLOYEEID" class="java.lang.Integer"/>
+	<field name="ORDERDATE" class="java.sql.Timestamp"/>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPVIA" class="java.lang.Integer"/>
+	<field name="FREIGHT" class="java.math.BigDecimal"/>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="SHIPADDRESS" class="java.lang.String"/>
+	<field name="SHIPCITY" class="java.lang.String"/>
+	<field name="SHIPREGION" class="java.lang.String"/>
+	<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<textField pattern="yyyy">
+				<reportElement uuid="03ffbe31-6100-4320-b4de-52ca05d5aa87" x="323" y="43" width="100" height="20" forecolor="#999999"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="0b6a61a1-0048-4331-863c-8563b6e92eb7" x="160" y="2" width="119" height="82"/>
+				<imageExpression><![CDATA["brand_holden-image.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="0309d740-ca86-4a0b-9488-a44c6b7ee1c5" x="254" y="42" width="78" height="22" forecolor="#666666"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Brand sales ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba8dd1fc-d44f-4af3-aabb-a79ea584f851" x="253" y="8" width="101" height="33" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Holden]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="87af21c5-a4f6-4fc9-bd14-6727f7b902fd" x="169" y="70" width="100" height="20" forecolor="#FFFFFF"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="1ed626dc-d326-487c-9d3a-c135d69841c1" x="0" y="2" width="103" height="24" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="8dbce203-1ba8-4188-97fd-d005eff7d186" x="1" y="5" width="100" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="a72dfae6-4f07-4825-89af-c2ac172f62a4" x="105" y="2" width="109" height="24" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="7e82381a-b70b-452c-95e5-85acc65850b8" x="216" y="2" width="117" height="24" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ec0191e1-28ed-4927-9215-833d2912e466" x="335" y="2" width="101" height="24" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="cd84149c-275c-4a35-a9f6-649a04e678b2" x="438" y="2" width="117" height="24" forecolor="#666666" backcolor="#666666"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="02e1e9bc-beda-4657-8974-f42bf69bd52d" x="106" y="5" width="108" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Required]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="df3aac38-5930-4e80-b245-65d5e51ea7bd" x="216" y="5" width="117" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="34987d99-31b9-4e6b-aaf2-f115edd90f39" x="335" y="5" width="100" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="309a7961-de92-4f54-a3b1-2eac5522835e" x="438" y="5" width="117" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Freight]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="453a2012-6d8a-4484-8e85-b9fbe973b4e0" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement uuid="6a99bf87-7ff8-4961-8241-1ef0d96dd1e7" x="438" y="0" width="84" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f9e55f19-8609-49c1-a35f-e0debebeacea" x="216" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebf0394e-b7a3-4760-ad05-f2438a298915" x="335" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="b4e2d1ab-1f66-4adf-9ac7-42758a7185c6" x="1" y="16" width="555" height="1"/>
+			</line>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="0deaa80e-6ed7-4e3c-a9d4-c31a16f2919c" x="106" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REQUIREDDATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<image>
+				<reportElement uuid="6cb819fb-a659-4c2f-ac3c-bfe8528b3821" x="1" y="0" width="554" height="20"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e2f1980e-a2bd-4787-869a-fd0989c759bd" x="435" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="ed2382a9-e642-42ec-8432-168002a9f839" x="515" y="0" width="40" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

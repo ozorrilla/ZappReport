@@ -1,0 +1,318 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ZappReport - Ejemplos</title>
+
+    <style type="text/css">
+        body {
+            font: 300 15px/19px klavika,helvetica,arial,sans-serif;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        a {
+            outline: none;
+            text-decoration: none;
+        }
+
+        #title {
+            height: 60px;
+            width: 100%;
+            background: #fff;
+            border-bottom: 5px solid #c8c8c8;
+        }
+
+        #title > .w {
+            height: 100%;
+        }
+
+        .w {
+            width: 1000px;
+            padding: 0 20px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .w {
+                width: 100%;
+            }
+        }
+
+        #title-text {
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            top: 50%;
+        }
+
+        #title-text {
+            right: 20px;
+            font-weight: 400;
+            font-size: 17px;
+            margin-top: -21px;
+            color: #888;
+        }
+
+
+        #header > .w {
+            display: table;
+            table-layout: fixed;
+            height: 100px;
+        }
+
+        .hi {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #header-title {
+            width: 370px;
+            font-size: 36px;
+            color: #1c5a7d;
+        }
+
+        .hl {
+            text-align: right;
+        }
+        .hl > a {
+            font-weight: 500;
+            color: #888;
+        }
+
+        .hl > a:hover {
+            color: #444;
+        }
+
+        .gh {
+            border-top: 1px solid #c8c8c8;
+            height: 80px;
+            font-size: 24px;
+            color: #1c5a7d;
+            cursor: pointer;
+        }
+
+        .gh > .w {
+            display: table;
+            table-layout: fixed;
+            height: 80px;
+        }
+
+        .gt,
+        .ga {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .ga {
+            width: 48px;
+        }
+
+        .group-action-icon {
+            height: 24px;
+            width: 24px;
+            font-size: 24px;
+            line-height: 24px;
+            font-family: Sencha-Examples;
+            background: center no-repeat;
+        }
+
+        .collapsed + .g {
+            display: none;
+        }
+
+        .g {
+            border-top: 5px solid #25657b;
+            background-color: #2f7d9c;
+            padding-bottom: 30px;
+        }
+
+        .e {
+            float: left;
+            padding-left: 85px;
+            position: relative;
+            color: #fff;
+            width: 300px;
+            height: 100px;
+            margin: 30px 20px 0 0
+        }
+
+        .eiw {
+            height: 74px;
+            width: 84px;
+            font-size: 72px;
+            line-height: 72px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -36px;
+            color: #1c5a7d;
+            font-family: Sencha-Examples;
+        }
+
+        .ei {
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            font-size: 36px;
+            line-height: 72px;
+            text-align: center;
+        }
+
+        .etw {
+            display: table;
+            height: 100%;
+        }
+        .etwi {
+            padding-left: 15px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .et {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        #ft {
+            padding: 24px 0;
+            border-top: 1px solid #c8c8c8;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bd">
+        <div class="gh">
+            <div class="w">
+                <div class="gt"><center>ZappReport</center></div>
+                <div class="ga"></div>
+            </div>
+        </div>
+        <div class="g">
+            <div class="w">
+
+                <a class="e" href="src/console.php?t=basic_report">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Simple</div>
+                            <div class="ed">Mostrando un listado de elementos</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=parameters_and_variables">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Parametros & Variables</div>
+                            <div class="ed">Configurando parametros y variables de c&aacute;lculo</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=fonts">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Fuentes</div>
+                            <div class="ed">Combinando los tipos de fuente</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=wood">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Grupos</div>
+                            <div class="ed">Agrupando elementos y detallando las agrupaciones</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=simple">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Im&aacute;genes</div>
+                            <div class="ed">Jugando con las im&aacute;genes</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=groups">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">C&oacute;digo PHP</div>
+                            <div class="ed">Introduciendo c&oacute;digo php en las expresiones del iReport</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=overflow_text">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Celdas Ajustables</div>
+                            <div class="ed">Las Celdas se ajustan a texto y reajustan las bandas</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=decorado">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Decorado</div>
+                            <div class="ed">Componentes + print When Expression</div>                                
+                        </div>                            
+                    </div>
+                </a>
+                <a class="e" href="src/console.php?t=decorado">
+                    <div class="eiw ibh">
+                        <div class="ei ik"></div>                            
+                    </div>
+                    <div class="etw">
+                        <div class="etwi">
+                            <div class="et">Listado</div>
+                            <div class="ed">Componente List + configuraci&oacute;n de dataset</div>                                
+                        </div>                            
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div id="ft">
+        <center>
+            <div class="hi hl">
+                Desarrollado por <a href="mailto:ozorrilla87@gmail.com">Ing. Osley Zorrilla Rivera</a>
+            </div>
+        </center>
+    </div>
+</body>

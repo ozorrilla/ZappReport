@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="flower" language="groovy" pageWidth="595" pageHeight="842" columnWidth="20" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3c05ae4-57cb-4fa1-9500-da19c40304d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="PieChartDataset" uuid="a5e60406-4aab-4ac4-9ecb-fd0283c33f3f"/>
+	<queryString>
+		<![CDATA[select * from orders]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer"/>
+	<field name="CUSTOMERID" class="java.lang.String"/>
+	<field name="EMPLOYEEID" class="java.lang.Integer"/>
+	<field name="ORDERDATE" class="java.sql.Timestamp"/>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPVIA" class="java.lang.Integer"/>
+	<field name="FREIGHT" class="java.math.BigDecimal"/>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="SHIPADDRESS" class="java.lang.String"/>
+	<field name="SHIPCITY" class="java.lang.String"/>
+	<field name="SHIPREGION" class="java.lang.String"/>
+	<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<title>
+		<band height="94" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="330fddbc-2f09-4be0-9981-ab9bf13f71c0" x="-20" y="0" width="597" height="65" forecolor="#006699" backcolor="#006699"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="0970c092-ab98-4b4d-970e-edd7a2a14559" x="336" y="65" width="217" height="29" forecolor="#666666"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Flower SubTitle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="06cf9b6e-afe3-4f8e-b86e-766334cc79fa" x="229" y="0" width="346" height="65" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font size="48" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Flower Title]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1748612f-b122-4ed8-985b-a2dea71fa09f" positionType="Float" x="229" y="0" width="172" height="18"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false" isStrikeThrough="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPADDRESS}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="265621cb-aa87-4e95-880d-c2e56a6d1c66" positionType="FixRelativeToBottom" x="227" y="22" width="326" height="1"/>
+			</line>
+			<frame>
+				<reportElement uuid="6f562370-59fb-4a38-b64a-873b60a5a306" mode="Opaque" x="0" y="0" width="227" height="44" forecolor="#FFFFCC" backcolor="#FFFFCC"/>
+				<line>
+					<reportElement uuid="8b3e4896-b7f1-434d-96fd-a544e43a498e" x="151" y="7" width="79" height="1"/>
+				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="da7a9c34-ee71-45f9-b6fa-36f983ed90c2" x="6" y="7" width="116" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA["SHIPADDRESS asdfan  asdiadskljdasj  j jads adsllsdidsah as  jarkov in humaned korsad history influw"]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="cf626e98-64cd-4030-a649-4ea29f736e97" x="133" y="7" width="19" height="36"/>
+				</rectangle>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="e959f8d5-eed2-41c4-a7c5-6f2f40dde94f" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e0aa7896-1232-426d-9474-7d4d4f90244f" x="0" y="0" width="554" height="13" forecolor="#D0B48E" backcolor="#006699"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="ebd1e919-fd84-4d06-878d-fa7e289f8d14" x="447" y="0" width="109" height="13" forecolor="#FFFFFF"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+ $V{PAGE_NUMBER}+" of  "+$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="a6f98170-6291-45e4-b87f-efc73b96f263" x="3" y="0" width="197" height="13" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
