@@ -141,11 +141,11 @@ class TextField extends TextProperty
      */
     public function formatDate($pattern)
     {
+        $total = 0; $chunk = array(); $key = NULL;
+
         foreach ($this->java_format_date as $key => $val) {
             $chunk = preg_split("$key", $pattern);
-
             $total = count($chunk);
-
             if ($total > 1) {
                 break;
             }
@@ -172,34 +172,36 @@ class TextField extends TextProperty
     /**
      * Aplica el valor de pattern a un numero.
      *
-     * @param type $pattern El patron numerico a aplicar
-     * @param type $value El numero
-     * @return type Un numero con el patron aplicado.
+     * @param string $pattern El patron numerico a aplicar.
+     * @param string $value El numero.
+     * @return mixed Un numero con el patron aplicado.
      */
     public function numberPattern($pattern, $value)
     {
-        $fmt = new NumberFormatter('de_DE', NumberFormatter::IGNORE, $pattern);
+        if (class_exists('NumberFormatter')) {
+            $fmt = new NumberFormatter('de_DE', NumberFormatter::IGNORE, $pattern);
 
-        if ($pattern[count($pattern) - 1] == '%' || $pattern[count($pattern) - 1] == '‰') {
-            $fmt = new NumberFormatter('de_DE', NumberFormatter::PERCENT, $pattern);
-        }
-
-        if (self::$GROUPING_SEPARATOR_SYMBOL) {
-            $fmt->setSymbol(NumberFormatter::GROUPING_SEPARATOR_SYMBOL, self::$GROUPING_SEPARATOR_SYMBOL);
-        }
-        if (self::$DECIMAL_SEPARATOR_SYMBOL) {
-            $fmt->setSymbol(NumberFormatter::DECIMAL_SEPARATOR_SYMBOL, self::$DECIMAL_SEPARATOR_SYMBOL);
-        }
-
-        if ($fmt) {
-            $result = $fmt->format($value);
-            if (intl_is_failure($fmt->getErrorCode())) {
-                return $value;
+            if ($pattern[count($pattern) - 1] == '%' || $pattern[count($pattern) - 1] == '‰') {
+                $fmt = new NumberFormatter('de_DE', NumberFormatter::PERCENT, $pattern);
             }
-            return $result;
-        } else {
-            return $value;
+
+            if (self::$GROUPING_SEPARATOR_SYMBOL) {
+                $fmt->setSymbol(NumberFormatter::GROUPING_SEPARATOR_SYMBOL, self::$GROUPING_SEPARATOR_SYMBOL);
+            }
+            if (self::$DECIMAL_SEPARATOR_SYMBOL) {
+                $fmt->setSymbol(NumberFormatter::DECIMAL_SEPARATOR_SYMBOL, self::$DECIMAL_SEPARATOR_SYMBOL);
+            }
+
+            if ($fmt) {
+                $result = $fmt->format($value);
+                if (!intl_is_failure($fmt->getErrorCode())) {
+                    return $result;
+                }
+            }
         }
+
+        return $value;
+
     }
 
     /**
