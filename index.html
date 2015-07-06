@@ -5,7 +5,7 @@
 
     <style type="text/css">
         body {
-            font: 300 15px/19px klavika,helvetica,arial,sans-serif;
+            font: 300 15px/19px klavika, helvetica, arial, sans-serif;
             margin: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -63,7 +63,6 @@
             color: #888;
         }
 
-
         #header > .w {
             display: table;
             table-layout: fixed;
@@ -73,6 +72,7 @@
         .hi {
             display: table-cell;
             vertical-align: middle;
+            color: #514A3E;
         }
 
         #header-title {
@@ -84,6 +84,7 @@
         .hl {
             text-align: right;
         }
+
         .hl > a {
             font-weight: 500;
             color: #888;
@@ -96,8 +97,8 @@
         .gh {
             border-top: 1px solid #c8c8c8;
             height: 80px;
-            font-size: 24px;
-            color: #1c5a7d;
+            font-size: 30px;
+            color: #514A3E;
             cursor: pointer;
         }
 
@@ -131,9 +132,10 @@
         }
 
         .g {
-            border-top: 5px solid #25657b;
-            background-color: #2f7d9c;
+            border-top: 5px solid #514A3E;
+            background-color: #A08046;
             padding-bottom: 30px;
+            border-bottom: 5px solid #514A3E;
         }
 
         .e {
@@ -175,6 +177,10 @@
             display: table;
             height: 100%;
         }
+        .etw:hover {
+            color: #514A3E;
+        }
+
         .etwi {
             padding-left: 15px;
             display: table-cell;
@@ -195,124 +201,126 @@
 </head>
 <body>
 
-    <div id="bd">
-        <div class="gh">
-            <div class="w">
-                <div class="gt"><center>ZappReport</center></div>
-                <div class="ga"></div>
+<div id="bd">
+    <div class="gh">
+        <div class="w">
+            <div class="gt">
+                <center>ZappReport</center>
             </div>
-        </div>
-        <div class="g">
-            <div class="w">
-
-                <a class="e" href="src/console.php?t=basic_report">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Simple</div>
-                            <div class="ed">Mostrando un listado de elementos</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=parameters_and_variables">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Parametros & Variables</div>
-                            <div class="ed">Configurando parametros y variables de c&aacute;lculo</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=fonts">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Fuentes</div>
-                            <div class="ed">Combinando los tipos de fuente</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=wood">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Grupos</div>
-                            <div class="ed">Agrupando elementos y detallando las agrupaciones</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=simple">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Im&aacute;genes</div>
-                            <div class="ed">Jugando con las im&aacute;genes</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=groups">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">C&oacute;digo PHP</div>
-                            <div class="ed">Introduciendo c&oacute;digo php en las expresiones del iReport</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=overflow_text">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Celdas Ajustables</div>
-                            <div class="ed">Las Celdas se ajustan a texto y reajustan las bandas</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=decorado">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Decorado</div>
-                            <div class="ed">Componentes + print When Expression</div>                                
-                        </div>                            
-                    </div>
-                </a>
-                <a class="e" href="src/console.php?t=decorado">
-                    <div class="eiw ibh">
-                        <div class="ei ik"></div>                            
-                    </div>
-                    <div class="etw">
-                        <div class="etwi">
-                            <div class="et">Listado</div>
-                            <div class="ed">Componente List + configuraci&oacute;n de dataset</div>                                
-                        </div>                            
-                    </div>
-                </a>
-
-            </div>
+            <div class="ga"></div>
         </div>
     </div>
-    <div id="ft">
-        <center>
-            <div class="hi hl">
-                Desarrollado por <a href="mailto:ozorrilla87@gmail.com">Ing. Osley Zorrilla Rivera</a>
-            </div>
-        </center>
+    <div class="g">
+        <div class="w">
+
+            <a class="e" href="src/console.php?t=basic_report">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Simple</div>
+                        <div class="ed">Mostrando un listado de elementos</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=parameters_and_variables">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Parametros & Variables</div>
+                        <div class="ed">Configurando parametros y variables de c&aacute;lculo</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=fonts">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Fuentes</div>
+                        <div class="ed">Combinando los tipos de fuente</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=wood">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Grupos</div>
+                        <div class="ed">Agrupando elementos y detallando las agrupaciones</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=simple">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Im&aacute;genes</div>
+                        <div class="ed">Jugando con las im&aacute;genes</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=groups">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">C&oacute;digo PHP</div>
+                        <div class="ed">Introduciendo c&oacute;digo php en las expresiones del iReport</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=overflow_text">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Celdas Ajustables</div>
+                        <div class="ed">Las Celdas se ajustan a texto y reajustan las bandas</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=decorado">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Decorado</div>
+                        <div class="ed">Componentes + print When Expression</div>
+                    </div>
+                </div>
+            </a>
+            <a class="e" href="src/console.php?t=listado">
+                <div class="eiw ibh">
+                    <div class="ei ik"></div>
+                </div>
+                <div class="etw">
+                    <div class="etwi">
+                        <div class="et">Listado</div>
+                        <div class="ed">Componente List + configuraci&oacute;n de dataset</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
     </div>
+</div>
+<div id="ft">
+    <center>
+        <div class="hi hl">
+            Desarrollado por <a href="mailto:ozorrilla87@gmail.com">Ing. Osley Zorrilla Rivera</a>
+        </div>
+    </center>
+</div>
 </body>
