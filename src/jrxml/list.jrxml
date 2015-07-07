@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="charts" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="abe8bf1c-4f00-41cb-b895-ee1503f62776">
+	<property name="ireport.callouts" value="##Mon Jul 06 16:11:13 EDT 2015\ncallouts.4.text=The size (width and height of subreports) are not relevant.\ncallouts.4.bounds=271,431,182,54\ncallouts.6.pins=166,315;\ncallouts.1.text=Use the Sample Database (HSQLDB test) datasource to run this report.\nTo run the database, select Help &gt; Samples &gt; Run Sample Database.\ncallouts.3.pins=551,298;\ncallouts.5.text=We use a Frame to keep the subreport and the label with the total together.\ncallouts.3.bounds=638,227,178,202\ncallouts.2.text=This is a List component. It is a light version of a subreport and it is used to print data from a sub-dataset. It does not provide any support for variables, summary or title.\nThe data for the component is defined in dataset1. To edit the parameter values and the other connection details right-click the List element and select &quot;Edit list datasource&quot;.\ncallouts.4.pins=327,281;\ncallouts.2.bounds=467,437,287,130\ncallouts.6.text=The total \# of orders is a &quot;return value&quot; that comes from the subreport. That value (defined in the subreport element) is stored in the variable\: return_value_orders. In order to correctly print the value in the same band as the subreport, the textfield has evaluation time &quot;Band&quot;.\ncallouts.1.bounds=544,12,235,90\ncallouts.3.text=The alternating background color is obtained by using a Frame element for the content of the detail band. The Frame uses the style1 which defines a different background color based on the number of the record (the condition expression is\:\n$V{REPORT_COUNT} %2 \=\= 0\nwhich returns true for even records.\ncallouts.6.bounds=90,496,221,146\ncallouts.5.pins=97,304;\ncallouts.2.pins=423,297;\ncallouts.5.bounds=-9,421,150,75"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<style name="style_for_list" mode="Opaque" backcolor="#F0ECC9">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 ==0]]></conditionExpression>
+			<style backcolor="#CBCB91"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="dataset1" uuid="98276cdc-efb1-4982-9478-6530e9bb17e8">
+		<parameter name="Country" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select distinct shipcity from orders where shipcountry=$P{Country}]]>
+		</queryString>
+		<field name="SHIPCITY" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="SHIPNAME" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="a52fb7e3-6f3d-4f24-b47c-4fd7064e0e22">
+		<parameter name="Country" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select distinct shipcity from orders where shipcountry=$P{Country}]]>
+		</queryString>
+		<field name="SHIPCITY" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="SHIPNAME" class="java.lang.String"/>
+		<field name="ORDERDATE" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\JasperSoft\\SVN\\ireport\\trunk\\iReport\\ireport-samples\\release\\samples\\Subreports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct shipcountry from  orders order by shipcountry]]>
+	</queryString>
+	<field name="SHIPCOUNTRY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="ORDERDATE" class="java.lang.String"/>
+	<variable name="return_value_orders" class="java.lang.Integer" calculation="System"/>
+	<variable name="SHIPCITY_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{SHIPCITY}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="198" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b1ae4120-cd40-42a8-9234-d3750f39e896" x="0" y="32" width="555" height="23"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[A sub-report is a report inside another report. The subreport element is placed in the master report and it works like a placeholder for the child report. It defines how to locate the subreport, the values for the parameters of the subreport and the datasource or database connection that must be used to fill it.
+In this sample the master report select from the database the countries, while a subreport displays the first 10 orders of this country, a second report presents the list of the cities of this country.
+The List is used to simulate the second subreport, it uses a subdataset and does not require any extra file.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6e88674c-e3ef-47c7-9ee8-82bfae299a8b" x="0" y="1" width="555" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="20" isBold="false"/>
+				</textElement>
+				<text><![CDATA[List sample]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="178" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="caab2a49-c62b-454f-a7d0-85cd72992b1c" x="0" y="105" width="201" height="19"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset2" uuid="0af3c9a5-9539-4a17-8e51-6770dbe2cf81">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="19" width="201">
+						<frame>
+							<reportElement uuid="63509924-9a2b-4258-9968-2e926a331154" mode="Opaque" x="1" y="0" width="200" height="18" forecolor="#D4DED9" backcolor="#D4DED9"/>
+							<textField>
+								<reportElement uuid="65148811-800e-463d-958d-d4b97657db8d" mode="Transparent" x="100" y="0" width="100" height="18"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+							</textField>
+							<textField pattern="dd/MM/yyyy">
+								<reportElement uuid="8887692d-b9cc-492c-814e-5c08c09f2bee" mode="Transparent" x="30" y="0" width="70" height="18"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement uuid="aac68485-f92c-4e84-a621-36aa36b55b9c" mode="Transparent" x="0" y="0" width="30" height="18"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</frame>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<frame>
+				<reportElement uuid="ae2a5ea9-32a4-47a4-9799-acbd6bba5d81" style="style1" x="0" y="45" width="555" height="19"/>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement uuid="db628cb1-48e9-4ddb-bc1e-e43fcd88d338" x="149" y="0" width="70" height="19"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c0e2edd6-33e8-4a0f-b33e-6da941aaf181" x="235" y="0" width="100" height="19"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="83232658-5831-416b-8715-3722f0ee9bf5" x="0" y="0" width="30" height="19"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement uuid="728d3739-66dd-4ab2-bdfc-41fcad16d51d" x="0" y="3" width="231" height="41"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="9184d483-8b07-4511-b2fc-e7199850b2bd" x="395" y="105" width="159" height="19"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset2" uuid="7ebae0ec-2049-4a53-ad52-560b9662de4f">
+						<datasetParameter name="Country">
+							<datasetParameterExpression><![CDATA[$F{SHIPCOUNTRY}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="19" width="159">
+						<frame>
+							<reportElement uuid="144d6f22-d48a-4843-adea-d562b9d6dab2" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#F0ECC9" backcolor="#F0ECC9">
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 != 0;]]></printWhenExpression>
+							</reportElement>
+							<textField>
+								<reportElement uuid="2bf3e561-878c-4549-8ac0-764fad6c3736" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+							</textField>
+						</frame>
+						<frame>
+							<reportElement uuid="144f55c6-2de2-4b8a-a5df-08b1d02305a9" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#CBCB91" backcolor="#CBCB91">
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;
+]]></printWhenExpression>
+							</reportElement>
+							<textField>
+								<reportElement uuid="44020e8e-a3b9-4346-ae3d-7f773b98e2e6" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+							</textField>
+						</frame>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="d0629951-e180-4540-99cf-c4433fc2c029" x="396" y="64" width="159" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cities in this country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ef0671ac-d442-4528-b83c-9a2e0d5804ca" x="396" y="89" width="159" height="16"/>
+				<textElement/>
+				<text><![CDATA[Using a List component]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="7e5b742f-d6fb-4e0b-8d78-fe6cd15cce0a" x="231" y="105" width="159" height="19"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="874b6037-7d00-4ad9-833a-f2e6b8628fd2">
+						<datasetParameter name="Country">
+							<datasetParameterExpression><![CDATA[$F{SHIPCOUNTRY}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="19" width="159">
+						<frame>
+							<reportElement uuid="1db1e4f6-8c32-4acb-8b06-d2be2f2ea890" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#F0ECC9" backcolor="#F0ECC9">
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 != 0;]]></printWhenExpression>
+							</reportElement>
+							<textField>
+								<reportElement uuid="a7c87b27-6e3c-4c19-848b-b0c808eb1c7d" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+							</textField>
+						</frame>
+						<frame>
+							<reportElement uuid="c18745a9-3c37-4830-a821-6455c011194f" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#CBCB91" backcolor="#CBCB91">
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;
+]]></printWhenExpression>
+							</reportElement>
+							<textField>
+								<reportElement uuid="30084a80-6c04-40b8-ba44-821424af127d" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+							</textField>
+						</frame>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="71240aca-7c75-4e45-9c6b-3fff6e1724c8" x="231" y="64" width="159" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cities in this country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b66e9108-6583-4b7a-a091-15668d5ebb32" x="231" y="89" width="159" height="16"/>
+				<textElement/>
+				<text><![CDATA[List component width total]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="871bb1d1-7607-42fb-84df-82e7dc9f2be8" x="235" y="20" width="100" height="25"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[SHIP NAME]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9a3801d3-88cf-4e69-829f-b39207dcdca7" x="149" y="20" width="70" height="25"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[DATE]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement uuid="1925e7fa-fed8-45a9-ae43-3408d8dbc031" x="427" y="14" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="015853b7-c9c3-480c-844f-2c050158a568" x="507" y="14" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="ed2296a9-c9d4-4cb6-aa40-0d61d7809b97" x="0" y="1" width="555" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
