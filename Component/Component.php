@@ -29,7 +29,7 @@ abstract class Component {
      * Contiene todas las expresiones del objeto parseadas.
      * @var array 
      */
-    public $parse = array();
+    protected $parse = array();
 
     /**
      * Constuctor.

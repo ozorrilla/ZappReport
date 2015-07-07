@@ -1,6 +1,11 @@
 <?php
 
 require_once '../ZappReport.php';
+
+/**
+ * Proporciona una variable llamada $bulkdata con datos de muestra
+ * y $dataset1 con datos para un dataset.
+ */
 require_once 'data.php';
 
 $report = new ZappReport();
@@ -34,6 +39,17 @@ switch ($type) {
         $report->load($type, $bulkdata, $params);
         break;
     case 'decorado':
+        $report->load($type, $bulkdata);
+        break;
+    case 'list':
+        $report->addDataset('dataset1', $dataset1);
+
+        $dataset2 = array();
+        foreach ($bulkdata as $i) {
+            $dataset2[] = $bulkdata;
+        }
+
+        $report->addDataset('dataset2', $dataset2);
         $report->load($type, $bulkdata);
         break;
 

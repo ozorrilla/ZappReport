@@ -2,9 +2,9 @@
 
 /**
  * Band Class
- * 
+ *
  * Clase para representar las bandas del iReport.
- * 
+ *
  * @category  ZappReport
  * @package   Band
  * @version   1.0
@@ -14,39 +14,39 @@
 class Band {
 
     /**
-     * Los datos de jrxml de la banda. 
-     * @var \SimpleXMLElement  
+     * Los datos de jrxml de la banda.
+     * @var \SimpleXMLElement
      */
     protected $data = NULL;
 
     /**
-     * Listado de componentes. 
-     * @var array 
+     * Listado de componentes.
+     * @var array
      */
     public $component = array();
 
     /**
-     * Listado de componentes que se renderean al final de la banda. 
-     * @var array 
+     * Listado de componentes que se renderean al final de la banda.
+     * @var array
      */
     public $relativeToBottom = array();
 
     /**
-     * Listado de componentes que su altura depende del stretchType. 
-     * @var array 
+     * Listado de componentes que su altura depende del stretchType.
+     * @var array
      */
     public $stretchComponent = array();
 
     /**
      * Total de componentes en la banda.
-     * @var int 
+     * @var int
      */
     public $total = 0;
 
     /**
-     * Indica si esta rendereando un componente. Esta propiedad es usada para 
+     * Indica si esta rendereando un componente. Esta propiedad es usada para
      * determinar si fue un componente quien causo el salto de pagina.
-     * @var int 
+     * @var int
      */
     public $render = FALSE;
 
@@ -54,19 +54,19 @@ class Band {
      * Contiene los componentes de tipo Frame que se renderean en la banda. Esto
      * se utiliza en el salto de pagina, para dejar al inicio de cada pagina una
      * referencia a ellos.
-     * @var int 
+     * @var int
      */
     public $activeFrames = array();
 
     /**
      * Contiene todas las expresiones del objeto parseadas.
-     * @var array 
+     * @var array
      */
     public $parse = array();
 
     /**
      * Constructor de la clase.
-     * 
+     *
      * @param \SimpleXMLElement $band Datos del jrxml.
      * @return void
      */
@@ -87,7 +87,7 @@ class Band {
 
     /**
      * Devuelve el valor de la propiedad height.
-     * 
+     *
      * @return float Propiedad height.
      */
     public function height()
@@ -107,7 +107,7 @@ class Band {
 
     /**
      * Evalua si la banda puede ser rendereada.
-     * 
+     *
      * @return boolean TRUE o FALSE.
      */
     public function printWhenExpression()
@@ -117,7 +117,7 @@ class Band {
 
     /**
      * Renderea los componentes de la banda.
-     * 
+     *
      * @return void
      */
     public function render()
@@ -185,6 +185,14 @@ class Band {
                             $gt = $report->GetY() - $hp[$mPage]['yi'];
                             $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
                         }
+                        elseif($mPage == $report->PageNo())
+                        {
+                            if($hy[$mPage]['ym'] < $report->GetY()){
+                                $gt = $report->GetY() - $hp[$mPage]['yi'];
+                                $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
+                            }
+
+                        }
                         //si existen objetos sin mostrar
                         if ($i + 1 < $this->total)
                         {
@@ -217,7 +225,7 @@ class Band {
                 }
             }
 
-            //si existen paginas intermedias sin sus metadatas se actualizanF
+            //si existen paginas intermedias sin sus metadatas se actualizan
             for ($j = $iPage; $j <= $mPage; $j++)
             {
                 if ($j > $iPage && $j < $mPage)
@@ -282,7 +290,7 @@ class Band {
 
     /**
      * Renderea los grupos de cabecera (header groups).
-     * 
+     *
      * @return void
      */
     public function renderGroupHeader()
@@ -309,7 +317,7 @@ class Band {
 
     /**
      * Renderea los grupos de pie de detail (footer groups).
-     * 
+     *
      * @return void.
      */
     public function renderGroupFooter()

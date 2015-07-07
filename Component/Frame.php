@@ -107,6 +107,13 @@ class Frame extends Component {
                         $gt = $report->GetY() - $hp[$mPage]['yi'];
                         $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
                     }
+                    elseif($mPage == $report->PageNo())
+                    {
+                        if($hy[$mPage]['ym'] < $report->GetY()){
+                            $gt = $report->GetY() - $hp[$mPage]['yi'];
+                            $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
+                        }
+                    }
                     //si existen objetos sin mostrar
                     if ($i + 1 < $this->total)
                     {
@@ -139,7 +146,7 @@ class Frame extends Component {
             }
         }
 
-        //si existen paginas intermedias sin sus metadatas se actualizanF
+        //si existen paginas intermedias sin sus metadatas se actualizan
         for ($j = $iPage; $j <= $mPage; $j++)
         {
             if ($j > $iPage && $j < $mPage)

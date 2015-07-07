@@ -580,6 +580,9 @@ class ZappReport extends HFPDF
      */
     public static function parseExpression($exp)
     {
+        if($exp == ""){
+            return array();
+        }
         $lenght = strlen($exp);
 
         // r=reconocimiento, n=recolectando nombre

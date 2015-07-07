@@ -141,7 +141,9 @@ class TextField extends TextProperty
      */
     public function formatDate($pattern)
     {
-        $total = 0; $chunk = array(); $key = NULL;
+        $total = 0;
+        $chunk = array();
+        $key = NULL;
 
         foreach ($this->java_format_date as $key => $val) {
             $chunk = preg_split("$key", $pattern);
