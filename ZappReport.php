@@ -580,7 +580,7 @@ class ZappReport extends HFPDF
      */
     public static function parseExpression($exp)
     {
-        if($exp == ""){
+        if ($exp == "") {
             return array();
         }
         $lenght = strlen($exp);
@@ -645,7 +645,9 @@ class ZappReport extends HFPDF
                     $v = $this->variables[$name]->value();
                 }
             } elseif ($type == 'P') {
-                $v = $this->parameter[$name];
+                if (isset($this->parameter[$name])) {
+                    $v = $this->parameter[$name];
+                }
             } else {
                 if (isset($this->values[$this->REPORT_COUNT])) {
                     if (isset($this->values[$this->REPORT_COUNT][$name])) {

@@ -112,7 +112,7 @@ class Band {
      */
     public function printWhenExpression()
     {
-        return isset($this->data->printWhenExpression) ? (boolean) ZappReport::analyse((string) $this->data->printWhenExpression, $this->parse['printWhenExpression']) : TRUE;
+        return isset($this->data->printWhenExpression) ? (boolean) ZappReport::get_instance()->analyse((string) $this->data->printWhenExpression, $this->parse['printWhenExpression']) : TRUE;
     }
 
     /**

@@ -3,7 +3,7 @@
 	<property name="ireport.callouts" value="##Mon Jul 06 16:11:13 EDT 2015\ncallouts.4.text=The size (width and height of subreports) are not relevant.\ncallouts.4.bounds=271,431,182,54\ncallouts.6.pins=166,315;\ncallouts.1.text=Use the Sample Database (HSQLDB test) datasource to run this report.\nTo run the database, select Help &gt; Samples &gt; Run Sample Database.\ncallouts.3.pins=551,298;\ncallouts.5.text=We use a Frame to keep the subreport and the label with the total together.\ncallouts.3.bounds=638,227,178,202\ncallouts.2.text=This is a List component. It is a light version of a subreport and it is used to print data from a sub-dataset. It does not provide any support for variables, summary or title.\nThe data for the component is defined in dataset1. To edit the parameter values and the other connection details right-click the List element and select &quot;Edit list datasource&quot;.\ncallouts.4.pins=327,281;\ncallouts.2.bounds=467,437,287,130\ncallouts.6.text=The total \# of orders is a &quot;return value&quot; that comes from the subreport. That value (defined in the subreport element) is stored in the variable\: return_value_orders. In order to correctly print the value in the same band as the subreport, the textfield has evaluation time &quot;Band&quot;.\ncallouts.1.bounds=544,12,235,90\ncallouts.3.text=The alternating background color is obtained by using a Frame element for the content of the detail band. The Frame uses the style1 which defines a different background color based on the number of the record (the condition expression is\:\n$V{REPORT_COUNT} %2 \=\= 0\nwhich returns true for even records.\ncallouts.6.bounds=90,496,221,146\ncallouts.5.pins=97,304;\ncallouts.2.pins=423,297;\ncallouts.5.bounds=-9,421,150,75"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="96"/>
+	<property name="ireport.y" value="0"/>
 	<style name="style_for_list" mode="Opaque" backcolor="#F0ECC9">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 ==0]]></conditionExpression>
@@ -43,9 +43,6 @@
 	<field name="SHIPNAME" class="java.lang.String"/>
 	<field name="ORDERDATE" class="java.lang.String"/>
 	<variable name="return_value_orders" class="java.lang.Integer" calculation="System"/>
-	<variable name="SHIPCITY_1" class="java.lang.Integer" calculation="Count">
-		<variableExpression><![CDATA[$F{SHIPCITY}]]></variableExpression>
-	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -78,7 +75,7 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 	<detail>
 		<band height="178" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="caab2a49-c62b-454f-a7d0-85cd72992b1c" x="0" y="105" width="201" height="19"/>
+				<reportElement uuid="caab2a49-c62b-454f-a7d0-85cd72992b1c" x="0" y="131" width="201" height="19"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset2" uuid="0af3c9a5-9539-4a17-8e51-6770dbe2cf81">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -106,7 +103,7 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 				</jr:list>
 			</componentElement>
 			<frame>
-				<reportElement uuid="ae2a5ea9-32a4-47a4-9799-acbd6bba5d81" style="style1" x="0" y="45" width="555" height="19"/>
+				<reportElement uuid="ae2a5ea9-32a4-47a4-9799-acbd6bba5d81" style="style1" x="0" y="71" width="555" height="19" forecolor="#F4F5F5" backcolor="#F4F5F5"/>
 				<textField pattern="dd/MM/yyyy">
 					<reportElement uuid="db628cb1-48e9-4ddb-bc1e-e43fcd88d338" x="149" y="0" width="70" height="19"/>
 					<textElement textAlignment="Left"/>
@@ -118,8 +115,8 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 					<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="83232658-5831-416b-8715-3722f0ee9bf5" x="0" y="0" width="30" height="19"/>
-					<textElement textAlignment="Center"/>
+					<reportElement uuid="83232658-5831-416b-8715-3722f0ee9bf5" x="6" y="0" width="30" height="19"/>
+					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -131,7 +128,7 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement uuid="9184d483-8b07-4511-b2fc-e7199850b2bd" x="395" y="105" width="159" height="19"/>
+				<reportElement uuid="9184d483-8b07-4511-b2fc-e7199850b2bd" x="395" y="131" width="159" height="19"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset2" uuid="7ebae0ec-2049-4a53-ad52-560b9662de4f">
 						<datasetParameter name="Country">
@@ -146,37 +143,36 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 							<textField>
 								<reportElement uuid="2bf3e561-878c-4549-8ac0-764fad6c3736" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
 							</textField>
 						</frame>
 						<frame>
 							<reportElement uuid="144f55c6-2de2-4b8a-a5df-08b1d02305a9" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#CBCB91" backcolor="#CBCB91">
-								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;
-]]></printWhenExpression>
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;]]></printWhenExpression>
 							</reportElement>
 							<textField>
 								<reportElement uuid="44020e8e-a3b9-4346-ae3d-7f773b98e2e6" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
 							</textField>
 						</frame>
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
 			<staticText>
-				<reportElement uuid="d0629951-e180-4540-99cf-c4433fc2c029" x="396" y="64" width="159" height="25"/>
+				<reportElement uuid="d0629951-e180-4540-99cf-c4433fc2c029" x="396" y="90" width="159" height="25"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cities in this country]]></text>
+				<text><![CDATA[Names in this country]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ef0671ac-d442-4528-b83c-9a2e0d5804ca" x="396" y="89" width="159" height="16"/>
+				<reportElement uuid="ef0671ac-d442-4528-b83c-9a2e0d5804ca" x="396" y="115" width="159" height="16"/>
 				<textElement/>
 				<text><![CDATA[Using a List component]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement uuid="7e5b742f-d6fb-4e0b-8d78-fe6cd15cce0a" x="231" y="105" width="159" height="19"/>
+				<reportElement uuid="7e5b742f-d6fb-4e0b-8d78-fe6cd15cce0a" x="213" y="131" width="159" height="19"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset1" uuid="874b6037-7d00-4ad9-833a-f2e6b8628fd2">
 						<datasetParameter name="Country">
@@ -197,8 +193,7 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 						</frame>
 						<frame>
 							<reportElement uuid="c18745a9-3c37-4830-a821-6455c011194f" mode="Opaque" x="0" y="0" width="159" height="19" forecolor="#CBCB91" backcolor="#CBCB91">
-								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;
-]]></printWhenExpression>
+								<printWhenExpression><![CDATA[$evaluate = $V{REPORT_COUNT}%2 == 0;]]></printWhenExpression>
 							</reportElement>
 							<textField>
 								<reportElement uuid="30084a80-6c04-40b8-ba44-821424af127d" mode="Transparent" x="0" y="0" width="159" height="19" forecolor="#000000"/>
@@ -210,30 +205,52 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 				</jr:list>
 			</componentElement>
 			<staticText>
-				<reportElement uuid="71240aca-7c75-4e45-9c6b-3fff6e1724c8" x="231" y="64" width="159" height="25"/>
+				<reportElement uuid="71240aca-7c75-4e45-9c6b-3fff6e1724c8" x="213" y="90" width="159" height="25"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cities in this country]]></text>
+				<text><![CDATA[country]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b66e9108-6583-4b7a-a091-15668d5ebb32" x="231" y="89" width="159" height="16"/>
+				<reportElement uuid="b66e9108-6583-4b7a-a091-15668d5ebb32" x="213" y="115" width="128" height="16"/>
 				<textElement/>
-				<text><![CDATA[List component width total]]></text>
+				<text><![CDATA[List component]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="871bb1d1-7607-42fb-84df-82e7dc9f2be8" x="235" y="20" width="100" height="25"/>
+				<reportElement uuid="871bb1d1-7607-42fb-84df-82e7dc9f2be8" x="235" y="46" width="100" height="25"/>
 				<textElement>
 					<font size="15"/>
 				</textElement>
 				<textFieldExpression><![CDATA[SHIP NAME]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="9a3801d3-88cf-4e69-829f-b39207dcdca7" x="149" y="20" width="70" height="25"/>
+				<reportElement uuid="9a3801d3-88cf-4e69-829f-b39207dcdca7" x="149" y="46" width="70" height="25"/>
 				<textElement>
 					<font size="15"/>
 				</textElement>
 				<textFieldExpression><![CDATA[DATE]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="f08c4dd7-f538-4793-ba06-af16e16d0aa6" x="1" y="90" width="553" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="3198884e-c892-4e30-9e9e-83cad71adcfd" x="1" y="115" width="128" height="16"/>
+				<textElement/>
+				<text><![CDATA[Ship in this country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b00dd1ff-694a-4946-9ad9-3de3f0763ca8" x="1" y="90" width="159" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ship in this country]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1ca0842a-5670-470d-93dd-f6448940f8f4" x="7" y="44" width="70" height="25"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[No.]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

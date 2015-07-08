@@ -7,10 +7,10 @@ $dataset1 = array(
         array('SHIPCITY' => 'American', 'SHIPNAME' => 'Hanari Carnes', 'total' => 567),
         array('SHIPCITY' => 'Suisa', 'SHIPNAME' => 'Toms Spezialit', 'total' => 22),
         array('SHIPCITY' => 'Belgica', 'SHIPNAME' => 'Toms Spezialit', 'total' => 542),
-        array('SHIPCITY' => 'American','SHIPNAME' => 'Toms Spezialit',  'total' => 12),
-        array('SHIPCITY' => 'Suisa','SHIPNAME' => 'Victuailles en stock',  'total' => 34),
-        array('SHIPCITY' => 'Belgica','SHIPNAME' => 'Hanari Carnes',  'total' => 443),
-        array('SHIPCITY' => 'American','SHIPNAME' => 'Vins et alcools Chevalier',  'total' => 75),
+        array('SHIPCITY' => 'American', 'SHIPNAME' => 'Toms Spezialit', 'total' => 12),
+        array('SHIPCITY' => 'Suisa', 'SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPCITY' => 'Belgica', 'SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPCITY' => 'American', 'SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
         array('SHIPCITY' => 'Suisa', 'SHIPNAME' => 'Toms Spezialit', 'total' => 566),
         array('SHIPCITY' => 'Belgica', 'SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
         array('SHIPCITY' => 'American', 'total' => 454),
@@ -44,6 +44,50 @@ $dataset1 = array(
         array('SHIPCITY' => 'Brasil', 'total' => 324),
         array('SHIPCITY' => 'Cuba', 'total' => 445),
         array('SHIPCITY' => 'Ecuador', 'total' => 456)
+    )
+);
+$dataset2 = array(
+    array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 12),
+        array('SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 566),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
+    ), array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 10),
+        array('SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 566),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
+    ), array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 10),
+        array('SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 567),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 566),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
+    ), array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 10),
+        array('SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 567),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 566),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
+    ), array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 10),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 566),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 233),
+    ), array(
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 10),
+        array('SHIPNAME' => 'Toms Spezialit', 'total' => 12),
+        array('SHIPNAME' => 'Victuailles en stock', 'total' => 34),
+        array('SHIPNAME' => 'Hanari Carnes', 'total' => 443),
+        array('SHIPNAME' => 'Vins et alcools Chevalier', 'total' => 75),
     )
 );
 
