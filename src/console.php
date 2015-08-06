@@ -51,6 +51,15 @@ switch ($type) {
         $report->addDataset('dataset2', $dataset2);
         $report->load($type, $bulkdata);
         break;
+    case 'advanced_group':
+        $parameters = array(
+            'organismo' => 'Organismo',
+            'empresa' => 'Labiofam',
+            'finicio' => '01/07/2015',
+            'ffin' => '01/08/2015'
+        );
+        $report->load($type, $group, $parameters);
+        break;
     case 'factura':
         $params = array(
             //cliente

@@ -206,9 +206,15 @@ class ZappReport extends HFPDF
      */
     private static $instance;
 
+    /**
+     * Contiene el nombre del grupo rendereado en ese momento.
+     * @var null
+     */
+    public $activeGroup = NULL;
+
     public function __construct()
     {
-        self::$instance = & $this;
+        self::$instance = &$this;
     }
 
     /**
@@ -655,7 +661,8 @@ class ZappReport extends HFPDF
                     }
                 }
             }
-            $plain = preg_replace('/\$' . $type . '\{' . $name . '\}/', $v, $plain);
+
+            $plain = preg_replace('/\$' . $type . '\{' . $name . '\}/', $v == NULL ? 'NULL' : $v, $plain);
         }
 
         //evaluamos la expresion en php si existe
@@ -713,7 +720,6 @@ class ZappReport extends HFPDF
             while (($this->index() + 1) <= $this->total()) {
                 $this->detail->render();
                 $this->next();
-
                 if ($this->hasGroups()) {
                     $this->detail->renderGroupFooter();
                 }

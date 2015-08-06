@@ -2,9 +2,9 @@
 
 /**
  * Group Class
- * 
+ *
  * Clase que representa los grupos en el reporte.
- * 
+ *
  * @category  ZappReport
  * @package   Band
  * @version   1.0
@@ -15,13 +15,13 @@ class Group {
 
     /**
      * Nombre del grupo.
-     * @var string 
+     * @var string
      */
     private $name;
 
     /**
      * La expresion del grupo.
-     * @var string 
+     * @var string
      */
     private $groupExpression;
 
@@ -48,33 +48,33 @@ class Group {
 
     /**
      * Banda que representa los componentes del header.
-     * @var Band 
+     * @var Band
      */
     private $groupHeader = NULL;
 
     /**
      * Banda que representa los componentes del footer.
-     * @var Band 
+     * @var Band
      */
     private $groupFooter = NULL;
 
     /**
      * Guarda los valores del header y del footer despues de ser evaluado.
-     * @var array 
+     * @var array
      */
     private $value = array('header' => NULL, 'footer' => NULL);
 
     /**
      * Contiene todas las expresiones del objeto parseadas.
-     * @var array 
+     * @var array
      */
     public $parse = array();
 
     /**
      * Construtor.
-     * 
-     * @param \SimpleXmlElment $data.
-     * @return void
+     *
+     * @param \SimpleXmlElment $data .
+     * @return \Group
      */
     public function __construct($data)
     {
@@ -100,7 +100,7 @@ class Group {
 
     /**
      * Devuelve el nombre del grupo.
-     * 
+     *
      * @return string El nombre.
      */
     public function name()
@@ -110,7 +110,7 @@ class Group {
 
     /**
      * Devuelve la expresion del grupo.
-     * 
+     *
      * @return string La expresion.
      */
     public function groupExpression()
@@ -120,7 +120,7 @@ class Group {
 
     /**
      * Devuelve el valor en la propiedad StartNewPage.
-     * 
+     *
      * @return boolean Propiedad StartNewPage.
      */
     public function isStartNewPage()
@@ -130,7 +130,7 @@ class Group {
 
     /**
      * Devuelve el valor en la propiedad ResetPageNumber.
-     * 
+     *
      * @return boolean Propiedad ResetPageNumber.
      */
     public function isResetPageNumber()
@@ -140,7 +140,7 @@ class Group {
 
     /**
      * Devuelve el valor en la propiedad ReprintHeaderOnEachPage.
-     * 
+     *
      * @return boolean Propiedad ReprintHeaderOnEachPage.
      */
     public function isReprintHeaderOnEachPage()
@@ -150,7 +150,7 @@ class Group {
 
     /**
      * Devuelve la banda asociada al groupHeader.
-     * 
+     *
      * @return Band La banda.
      */
     public function header()
@@ -160,7 +160,7 @@ class Group {
 
     /**
      * Devuelve la banda asociada al groupFooter.
-     * 
+     *
      * @return Band La banda.
      */
     public function footer()
@@ -170,7 +170,7 @@ class Group {
 
     /**
      * Devuelve el valor del grupo pasado por parametro.
-     * 
+     *
      * @param string $name El nombre del grupo (header o footer).
      * @return mixed El valor del grupo.
      */
@@ -181,7 +181,7 @@ class Group {
 
     /**
      * Cambia el valor en grupo pasado por parametro.
-     * 
+     *
      * @param string $name El nombre del grupo (header o footer).
      * @param mixed $value El nuevo valor.
      * @return void
@@ -193,7 +193,7 @@ class Group {
 
     /**
      * Renderea el grupo pasado por parametro.
-     * 
+     *
      * @param string $name El nombre del grupo (header o footer).
      * @return void
      */

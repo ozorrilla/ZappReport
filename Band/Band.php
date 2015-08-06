@@ -11,7 +11,8 @@
  * @author    Osley Zorrilla Rivera <ozorrilla87@gmail.com>
  * @copyright Zoapp, Todos los derechos reservados.
  */
-class Band {
+class Band
+{
 
     /**
      * Los datos de jrxml de la banda.
@@ -82,7 +83,7 @@ class Band {
         $this->stretchComponent = $collect['stretchComponent'];
         $this->total = count($this->component);
 
-        $this->parse['printWhenExpression'] = ZappReport::parseExpression((string) $this->data->printWhenExpression);
+        $this->parse['printWhenExpression'] = ZappReport::parseExpression((string)$this->data->printWhenExpression);
     }
 
     /**
@@ -92,7 +93,7 @@ class Band {
      */
     public function height()
     {
-        return (float) $this->data['height'];
+        return (float)$this->data['height'];
     }
 
     /**
@@ -102,7 +103,7 @@ class Band {
      */
     public function split()
     {
-        return (string) $this->data['splitType'];
+        return (string)$this->data['splitType'];
     }
 
     /**
@@ -112,7 +113,7 @@ class Band {
      */
     public function printWhenExpression()
     {
-        return isset($this->data->printWhenExpression) ? (boolean) ZappReport::get_instance()->analyse((string) $this->data->printWhenExpression, $this->parse['printWhenExpression']) : TRUE;
+        return isset($this->data->printWhenExpression) ? (boolean)ZappReport::get_instance()->analyse((string)$this->data->printWhenExpression, $this->parse['printWhenExpression']) : TRUE;
     }
 
     /**
@@ -123,8 +124,7 @@ class Band {
     public function render()
     {
         // puede imprimirse la banda ?
-        if ($this->printWhenExpression())
-        {
+        if ($this->printWhenExpression()) {
             $report = ZappReport::get_instance();
             $name = $report->getState();
 
@@ -132,18 +132,15 @@ class Band {
             $y = $name == 'pagefooter' ? ($report->property->pageHeight - $report->property->bottomMargin - $this->height()) : $report->GetY();
 
             //chequeamos que exista suficiente espacio para mostrar la banda
-            if ($y + $this->height() > $report->PageBreakTrigger && !$report->InHeader && !$report->InFooter && $report->AcceptPageBreak())
-            {
+            if ($y + $this->height() > $report->PageBreakTrigger && !$report->InHeader && !$report->InFooter && $report->AcceptPageBreak()) {
                 $report->AddPage($report->CurOrientation, $report->CurPageSize);
                 $y = $name == 'pagefooter' ? ($report->property->pageHeight - $report->property->bottomMargin - $this->height()) : $report->GetY();
             }
 
-            if ($name == 'detail')
-            {
+            if ($name == 'detail') {
                 $report->evaluationVariable();
 
-                if ($report->hasGroups())
-                {
+                if ($report->hasGroups()) {
                     $report->$name->renderGroupHeader();
                     $y = $name == 'pagefooter' ? ($report->property->pageHeight - $report->property->bottomMargin - $this->height()) : $report->GetY();
                 }
@@ -160,13 +157,10 @@ class Band {
             $hy[$iPage] = array('yi' => $y, 'ym' => 0, 'gr' => $this->height(), 'to' => 0);
 
             // rendereamos los componentes sin crecimiento
-            foreach ($this->component as $i => $c)
-            {
-                if ($c->printWhenExpression())
-                {
+            foreach ($this->component as $i => $c) {
+                if ($c->printWhenExpression()) {
                     $stretch = $c->stretchType();
-                    if ($stretch == 'RelativeToBandHeight' || $stretch == 'RelativeToTallestObject')
-                    {
+                    if ($stretch == 'RelativeToBandHeight' || $stretch == 'RelativeToTallestObject') {
                         $report->_out('#-' . $c->uuid() . '-#');
                         continue;
                     }
@@ -177,32 +171,25 @@ class Band {
                     $c->render($x, $y);
                     $this->render = FALSE;
 
-                    if ($iPage != $report->PageNo())
-                    {
-                        if ($mPage < $report->PageNo())
-                        {
+                    if ($iPage != $report->PageNo()) {
+                        if ($mPage < $report->PageNo()) {
                             $mPage = $report->PageNo();
                             $gt = $report->GetY() - $hp[$mPage]['yi'];
                             $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
-                        }
-                        elseif($mPage == $report->PageNo())
-                        {
-                            if($hy[$mPage]['ym'] < $report->GetY()){
+                        } elseif ($mPage == $report->PageNo()) {
+                            if ($hy[$mPage]['ym'] < $report->GetY()) {
                                 $gt = $report->GetY() - $hp[$mPage]['yi'];
                                 $hy[$mPage] = array('yi' => $hp[$mPage]['yi'], 'ym' => $report->GetY(), 'gr' => $gt, 'to' => $gt);
                             }
 
                         }
                         //si existen objetos sin mostrar
-                        if ($i + 1 < $this->total)
-                        {
+                        if ($i + 1 < $this->total) {
                             $report->setPage($iPage);
                             $report->SetXY($x, $hp[$iPage]['yl']);
                         }
                         $my = ($hp[$iPage]['yl'] - ($c->y() < 0 ? $c->y() * -1 : $c->y())) - $y;
-                    }
-                    else
-                    {
+                    } else {
                         $my = ($report->GetY() - ($c->y() < 0 ? $c->y() * -1 : $c->y())) - $y;
                     }
 
@@ -210,66 +197,51 @@ class Band {
                      * refactorizando
                      */
                     $ip = &$hy[$report->PageNo()];
-                    if ($ip['to'] < $my)
-                    {
+                    if ($ip['to'] < $my) {
                         $ip['to'] = $my;
                     }
-                    if ($ip['ym'] < $report->GetY())
-                    {
+                    if ($ip['ym'] < $report->GetY()) {
                         $ip['ym'] = $report->GetY();
                     }
-                    if ($ip['gr'] < $ip['ym'] - $ip['yi'])
-                    {
+                    if ($ip['gr'] < $ip['ym'] - $ip['yi']) {
                         $ip['gr'] = $ip['ym'] - $ip['yi'];
                     }
                 }
             }
 
             //si existen paginas intermedias sin sus metadatas se actualizan
-            for ($j = $iPage; $j <= $mPage; $j++)
-            {
-                if ($j > $iPage && $j < $mPage)
-                {
+            for ($j = $iPage; $j <= $mPage; $j++) {
+                if ($j > $iPage && $j < $mPage) {
                     $gr = $hp[$j]['yl'] - $hp[$j]['yi'];
                     $hy[$j] = array('yi' => $hp[$j]['yi'], 'ym' => $hp[$j]['ym'], 'gr' => $gr, 'to' => $gr);
                 }
             }
 
-            if ($mPage != $iPage)
-            {
+            if ($mPage != $iPage) {
                 $report->setPage($mPage);
                 $report->SetXY($x, $hy[$mPage]['ym']);
                 $report->resetVariables('Page');
-            }
-            else
-            {
+            } else {
                 $report->SetXY($x, ($hy[$iPage]['ym'] - $y > $hy[$iPage]['gr'] ? $hy[$iPage]['ym'] : $y + $hy[$iPage]['gr']));
             }
 
             //se renderean los componentes relativos al final de la banda
-            foreach ($this->relativeToBottom as $crtb)
-            {
+            foreach ($this->relativeToBottom as $crtb) {
                 $crtb->render($x, $report->GetY() - $crtb->y());
             }
 
-            if (!empty($this->stretchComponent))
-            {
+            if (!empty($this->stretchComponent)) {
                 $report->state = 777;
                 $lasty = $report->GetY();
 
                 //se renderean los componentes relativos al final de la banda
-                foreach ($this->stretchComponent as $sc)
-                {
-                    for ($i = $iPage, $lPage = $mPage ? $mPage : $iPage; $i <= $lPage; $i++)
-                    {
+                foreach ($this->stretchComponent as $sc) {
+                    for ($i = $iPage, $lPage = $mPage ? $mPage : $iPage; $i <= $lPage; $i++) {
                         $stretch = $sc->stretchType();
-                        if ($stretch == 'RelativeToBandHeight')
-                        {
+                        if ($stretch == 'RelativeToBandHeight') {
                             $sc->setHeight($hy[$i]['gr']);
                             $sc->render($x, $hy[$i]['yi'] - $sc->y());
-                        }
-                        elseif ($stretch == 'RelativeToTallestObject')
-                        {
+                        } elseif ($stretch == 'RelativeToTallestObject') {
                             $h = $hy[$i]['to'] == $hy[$i]['gr'] ? $sc->y() : 0;
                             $sc->setHeight($hy[$i]['to'] - $h);
                             $sc->render($x, $hy[$i]['yi']);
@@ -297,19 +269,23 @@ class Band {
     {
         $report = ZappReport::get_instance();
 
-        foreach ($report->groups as $group)
-        {
+        for ($i = 0, $total = count($report->groups); $i < $total; $i++) {
+
+            $group = &$report->groups[$i];
             $result = $report->analyse($group->groupExpression(), $group->parse['groupExpression']);
 
-            if ($result != $group->value('header'))
-            {
+            if ($result != $group->value('header')) {
                 $group->render('header');
 
                 $group->setValue('header', $result);
 
-                if ($report->index() == 0)
-                {
+                if ($report->index() == 0) {
                     $group->setValue('footer', $result);
+                }
+
+                //forzamos a los grupos a renderearse
+                for ($k = $i+1; $k < $total; $k++) {
+                    $report->groups[$k]->setValue('header', NULL);
                 }
             }
         }
@@ -324,19 +300,24 @@ class Band {
     {
         $report = ZappReport::get_instance();
 
-        $groups = $report->groups;
-
-        for ($i = count($groups) - 1; $i >= 0; $i--)
-        {
-            $group = &$groups[$i];
+        for ($i = count($report->groups) - 1; $i >= 0; $i--) {
+            $group = &$report->groups[$i];
 
             $result = $report->analyse($group->groupExpression(), $group->parse['groupExpression']);
 
-            if ($result != $group->value('footer'))
-            {
-                $report->REPORT_COUNT --;
+            $forceReset = FALSE;
+            if (isset($report->groups[$i - 1])) {
+                $nextGroup = $report->groups[$i - 1];
+                $nextResult = $report->analyse($nextGroup->groupExpression(), $nextGroup->parse['groupExpression']);
+                if ($nextResult != $nextGroup->value('footer')) {
+                    $forceReset = TRUE;
+                }
+            }
+
+            if ($result != $group->value('footer') || $forceReset) {
+                $report->REPORT_COUNT--;
                 $group->render('footer');
-                $report->REPORT_COUNT ++;
+                $report->REPORT_COUNT++;
 
                 $group->setValue('footer', $result);
 

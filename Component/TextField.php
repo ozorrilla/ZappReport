@@ -109,6 +109,11 @@ class TextField extends TextProperty
                 return date_format($date, $format);
             }
         }
+
+        if ($this->isBlankWhenNull() && ($result == "NULL" || $result == NULL)) {
+            return '';
+        }
+
         //analizamos para capturar expresiones
         return utf8_decode(ZappReport::get_instance()->lang($result));
     }
@@ -121,6 +126,16 @@ class TextField extends TextProperty
     public function pattern()
     {
         return isset($this->data['pattern']) ? (string)$this->data['pattern'] : NULL;
+    }
+
+    /**
+     * Devuelve el valor en la propiedad isBlankWhenNull.
+     *
+     * @return string Propiedad isBlankWhenNull.
+     */
+    public function isBlankWhenNull()
+    {
+        return isset($this->data['isBlankWhenNull']) ? TRUE : FALSE;
     }
 
     /**
@@ -172,9 +187,9 @@ class TextField extends TextProperty
     }
 
     /**
-     * Aplica el valor de pattern a un numero.
+     * Aplica el valor de pattern a un número.
      *
-     * @param string $pattern El patron numerico a aplicar.
+     * @param string $pattern El patron numérico a aplicar.
      * @param string $value El numero.
      * @return mixed Un numero con el patron aplicado.
      */
