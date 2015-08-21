@@ -139,11 +139,16 @@ class Band
 
             if ($name == 'detail') {
                 $report->evaluationVariable();
-
                 if ($report->hasGroups()) {
                     $report->$name->renderGroupHeader();
                     $y = $name == 'pagefooter' ? ($report->property->pageHeight - $report->property->bottomMargin - $this->height()) : $report->GetY();
                 }
+            }
+
+            //chequeamos que exista suficiente espacio para mostrar la banda
+            if ($y + $this->height() > $report->PageBreakTrigger && !$report->InHeader && !$report->InFooter && $report->AcceptPageBreak()) {
+                $report->AddPage($report->CurOrientation, $report->CurPageSize);
+                $y = $name == 'pagefooter' ? ($report->property->pageHeight - $report->property->bottomMargin - $this->height()) : $report->GetY();
             }
 
             //$iPage: pagina donde inicio la banda

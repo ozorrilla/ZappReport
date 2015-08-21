@@ -58,7 +58,7 @@ switch ($type) {
             'finicio' => '01/07/2015',
             'ffin' => '01/08/2015'
         );
-        $report->load($type, $group, $parameters);
+        $report->load($type, $groups, $parameters);
         break;
     case 'factura':
         $params = array(
