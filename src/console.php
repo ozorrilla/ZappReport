@@ -53,12 +53,12 @@ switch ($type) {
         break;
     case 'advanced_group':
         $parameters = array(
-            'organismo' => 'Organismo',
-            'empresa' => 'Labiofam',
+            'organismo' => 'ORMGE',
+            'empresa' => 'CARTON',
             'finicio' => '01/07/2015',
             'ffin' => '01/08/2015'
         );
-        $report->load($type, $groups, $parameters);
+        $report->load($type, $group, $parameters);
         break;
     case 'factura':
         $params = array(

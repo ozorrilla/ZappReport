@@ -91,7 +91,7 @@ The List is used to simulate the second subreport, it uses a subdataset and does
 							<textField pattern="dd/MM/yyyy">
 								<reportElement uuid="8887692d-b9cc-492c-814e-5c08c09f2bee" mode="Transparent" x="30" y="0" width="70" height="18"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 							</textField>
 							<textField>
 								<reportElement uuid="aac68485-f92c-4e84-a621-36aa36b55b9c" mode="Transparent" x="0" y="0" width="30" height="18"/>

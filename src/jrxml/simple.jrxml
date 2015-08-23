@@ -27,33 +27,33 @@
 	<title>
 		<band height="109" splitType="Stretch">
 			<textField pattern="yyyy">
-				<reportElement uuid="03ffbe31-6100-4320-b4de-52ca05d5aa87" x="323" y="43" width="100" height="20" forecolor="#999999"/>
+				<reportElement uuid="03ffbe31-6100-4320-b4de-52ca05d5aa87" x="392" y="45" width="100" height="20" forecolor="#000000"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement uuid="0b6a61a1-0048-4331-863c-8563b6e92eb7" x="160" y="2" width="119" height="82"/>
-				<imageExpression><![CDATA["brand_holden-image.png"]]></imageExpression>
+				<reportElement uuid="0b6a61a1-0048-4331-863c-8563b6e92eb7" x="1" y="2" width="315" height="82"/>
+				<imageExpression><![CDATA["../image/zappreport.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="0309d740-ca86-4a0b-9488-a44c6b7ee1c5" x="254" y="42" width="78" height="22" forecolor="#666666"/>
+				<reportElement uuid="0309d740-ca86-4a0b-9488-a44c6b7ee1c5" x="323" y="44" width="78" height="22" forecolor="#666666"/>
 				<textElement>
 					<font size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Brand sales ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ba8dd1fc-d44f-4af3-aabb-a79ea584f851" x="253" y="8" width="101" height="33" forecolor="#333333"/>
+				<reportElement uuid="ba8dd1fc-d44f-4af3-aabb-a79ea584f851" x="322" y="10" width="101" height="33" forecolor="#333333"/>
 				<textElement verticalAlignment="Middle">
 					<font size="26" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Holden]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement uuid="87af21c5-a4f6-4fc9-bd14-6727f7b902fd" x="169" y="70" width="100" height="20" forecolor="#FFFFFF"/>
-			</rectangle>
+			<line>
+				<reportElement uuid="eaed137c-86f8-4673-960e-1e355e60e31e" x="320" y="10" width="1" height="55" forecolor="#CCCCCC"/>
+			</line>
 		</band>
 	</title>
 	<pageHeader>

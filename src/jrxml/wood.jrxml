@@ -31,7 +31,7 @@
 		<groupExpression><![CDATA[$F{SHIPREGION}]]></groupExpression>
 		<groupHeader>
 			<band height="40">
-				<textField>
+				<textField isBlankWhenNull="true">
 					<reportElement uuid="ed5068f3-999d-4513-9c1b-2ff13e0953e1" x="47" y="13" width="506" height="24" forecolor="#333333"/>
 					<textElement>
 						<font size="18" isBold="true"/>

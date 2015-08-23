@@ -5,10 +5,8 @@
 
     <style type="text/css">
         body {
-            font: 300 15px/19px klavika, helvetica, arial, sans-serif;
+            font: 300 15px/19px sans-serif;
             margin: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         * {
@@ -21,17 +19,6 @@
         a {
             outline: none;
             text-decoration: none;
-        }
-
-        #title {
-            height: 60px;
-            width: 100%;
-            background: #fff;
-            border-bottom: 5px solid #c8c8c8;
-        }
-
-        #title > .w {
-            height: 100%;
         }
 
         .w {
@@ -48,37 +35,10 @@
             }
         }
 
-        #title-text {
-            height: 50px;
-            line-height: 50px;
-            position: absolute;
-            top: 50%;
-        }
-
-        #title-text {
-            right: 20px;
-            font-weight: 400;
-            font-size: 17px;
-            margin-top: -21px;
-            color: #888;
-        }
-
-        #header > .w {
-            display: table;
-            table-layout: fixed;
-            height: 100px;
-        }
-
         .hi {
             display: table-cell;
             vertical-align: middle;
             color: #514A3E;
-        }
-
-        #header-title {
-            width: 370px;
-            font-size: 36px;
-            color: #1c5a7d;
         }
 
         .hl {
@@ -95,11 +55,9 @@
         }
 
         .gh {
-            border-top: 1px solid #c8c8c8;
             height: 80px;
             font-size: 30px;
             color: #514A3E;
-            cursor: pointer;
         }
 
         .gh > .w {
@@ -118,34 +76,25 @@
             width: 48px;
         }
 
-        .group-action-icon {
-            height: 24px;
-            width: 24px;
-            font-size: 24px;
-            line-height: 24px;
-            font-family: Sencha-Examples;
-            background: center no-repeat;
-        }
-
-        .collapsed + .g {
-            display: none;
-        }
-
         .g {
-            border-top: 5px solid #514A3E;
-            background-color: #A08046;
+            border-top: 5px solid #90C226;
+            background-color: #fff;
             padding-bottom: 30px;
-            border-bottom: 5px solid #514A3E;
+            border-bottom: 5px solid #90C226;
         }
 
         .e {
             float: left;
             padding-left: 85px;
             position: relative;
-            color: #fff;
+            color: #508927;
             width: 300px;
             height: 100px;
             margin: 30px 20px 0 0
+        }
+
+        .e:hover {
+            background-color: #DDEDBD;
         }
 
         .eiw {
@@ -158,7 +107,6 @@
             left: 0;
             margin-top: -36px;
             color: #1c5a7d;
-            font-family: Sencha-Examples;
         }
 
         .ei {
@@ -173,13 +121,18 @@
             text-align: center;
         }
 
+        .ei img {
+            border-radius: 3px;
+            border: 2px solid #90C226;
+        }
+
         .etw {
             display: table;
             height: 100%;
         }
 
         .etw:hover {
-            color: #514A3E;
+            background-color: #DDEDBD;
         }
 
         .etwi {
@@ -195,9 +148,22 @@
 
         #ft {
             padding: 24px 0;
+            font-size: medium;
             border-top: 1px solid #c8c8c8;
             color: #888;
         }
+
+        pre {
+            font-family: Consolas, Monaco, Courier New, Courier, monospace;
+            font-size: 12px;
+            background-color: #f9f9f9;
+            border: 1px solid #D0D0D0;
+            color: #002166;
+            display: block;
+            margin: 0px 0 14px 0;
+            padding: 0px 10px 12px 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -206,17 +172,16 @@
     <div class="gh">
         <div class="w">
             <div class="gt">
-                <center>ZappReport</center>
+                <img width="300" src="src/image/zapprepot.png">
             </div>
             <div class="ga"></div>
         </div>
     </div>
     <div class="g">
         <div class="w">
-
             <a class="e" href="src/console.php?t=basic_report">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/simple.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -227,18 +192,18 @@
             </a>
             <a class="e" href="src/console.php?t=parameters_and_variables">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/para&var.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
-                        <div class="et">Parametros & Variables</div>
+                        <div class="et">Par&aacute;metros & Variables</div>
                         <div class="ed">Configurando parametros y variables de c&aacute;lculo</div>
                     </div>
                 </div>
             </a>
             <a class="e" href="src/console.php?t=fonts">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/font.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -249,7 +214,7 @@
             </a>
             <a class="e" href="src/console.php?t=wood">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/wood.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -260,7 +225,7 @@
             </a>
             <a class="e" href="src/console.php?t=simple">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/image.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -271,7 +236,7 @@
             </a>
             <a class="e" href="src/console.php?t=groups">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/phpcode.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -282,7 +247,7 @@
             </a>
             <a class="e" href="src/console.php?t=overflow_text">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/cell.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -293,7 +258,7 @@
             </a>
             <a class="e" href="src/console.php?t=decorado">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/decorate.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -304,7 +269,7 @@
             </a>
             <a class="e" href="src/console.php?t=list">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/list.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -315,18 +280,18 @@
             </a>
             <a class="e" href="src/console.php?t=company">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/company.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
-                        <div class="et">Compan&ntilde;&iacute;a</div>
+                        <div class="et">Compa&ntilde;&iacute;a</div>
                         <div class="ed">Listado + Group Footer + Variable de Suma</div>
                     </div>
                 </div>
             </a>
             <a class="e" href="src/console.php?t=factura">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/factura.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -337,7 +302,7 @@
             </a>
             <a class="e" href="src/console.php?t=advanced_group">
                 <div class="eiw ibh">
-                    <div class="ei ik"></div>
+                    <div class="ei"><img src="src/image/adv_gro.png"/></div>
                 </div>
                 <div class="etw">
                     <div class="etwi">
@@ -349,11 +314,57 @@
         </div>
     </div>
 </div>
-<div id="ft">
-    <center>
-        <div class="hi hl">
-            Desarrollado por <a href="mailto:ozorrilla87@gmail.com">Ing. Osley Zorrilla Rivera</a>
-        </div>
-    </center>
+
+<div style="padding-top: 24px;" class="gh">
+    <div class="w">
+        <pre>
+            //incluimos la librer&iacute;a
+            require_once '../ZappReport.php';
+
+            //creamos un objeto
+            $report = new ZappReport();
+
+            //indicamos la direcci&oacute;n de los reportes jrxml
+            $report->setPath('jrxml/');
+
+            //si exiten parametros los pasamos
+            $parameters = array(
+                'organismo' => 'ORMGE',
+                'empresa' => 'CARTON',
+                'finicio' => '01/07/2015',
+                'ffin' => '01/08/2015'
+            );
+
+             /**
+             * Cargamos la configuraci&oacute;n del reporte.
+             *
+             * @param string $name nombre de fichero
+             * @param array $data datos a mostrar. El formato debe ser el siguiente:
+                          $data =  array(
+                                    array('nombre'=>'Carlos', 'edad'=> 25),
+                                    array('nombre'=>'Juan', 'edad'=> 17),
+                                    array('nombre'=>'Maria', 'edad'=> 28),
+                                    ...
+                                );
+             * @param array $parameters [opcional] par&aacute;metros del reporte.
+             * @return El objeto ZappReport
+             */
+            $report->load('reportname', $data, $parameters);
+
+            //lanzamos el reporte
+            $report->show();
+</pre>
+
+    </div>
+    <div id="ft">
+        <center>
+            <div class="hi hl">
+                Desarrollado por <a href="mailto:ozorrilla87@gmail.com">Ing. Osley Zorrilla Rivera</a>
+            </div>
+        </center>
+    </div>
 </div>
+
+
 </body>
+

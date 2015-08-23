@@ -54,16 +54,16 @@
 		<groupHeader>
 			<band height="21">
 				<textField>
-					<reportElement uuid="c1cbcc19-c215-4f24-8f97-96a97ac506f3" x="44" y="1" width="133" height="20"/>
+					<reportElement uuid="c1cbcc19-c215-4f24-8f97-96a97ac506f3" x="51" y="1" width="133" height="20"/>
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{cuenta}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="8eae9331-247e-485c-9bad-446990a1893f" x="1" y="1" width="43" height="20"/>
+					<reportElement uuid="8eae9331-247e-485c-9bad-446990a1893f" x="1" y="1" width="48" height="20"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Cuenta:]]></text>
+					<text><![CDATA[Account:]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
@@ -79,7 +79,7 @@
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Sub Total Cuenta:]]></text>
+					<text><![CDATA[Sub Total Account:]]></text>
 				</staticText>
 			</band>
 		</groupFooter>
@@ -89,14 +89,14 @@
 		<groupHeader>
 			<band height="21">
 				<staticText>
-					<reportElement uuid="a2bcd146-2b05-4135-90c6-34eaf9f001b8" x="1" y="1" width="45" height="20"/>
+					<reportElement uuid="a2bcd146-2b05-4135-90c6-34eaf9f001b8" x="1" y="1" width="50" height="20"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Análisis:]]></text>
+					<text><![CDATA[Analysis:]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="c2e0da04-7e3c-4ed6-9a8b-ff3374e67394" x="48" y="1" width="246" height="20"/>
+					<reportElement uuid="c2e0da04-7e3c-4ed6-9a8b-ff3374e67394" x="55" y="1" width="246" height="20"/>
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{analisis}]]></textFieldExpression>
 				</textField>
@@ -114,7 +114,7 @@
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Sub Total Análisis:]]></text>
+					<text><![CDATA[Sub Total Analysis:]]></text>
 				</staticText>
 			</band>
 		</groupFooter>
@@ -124,14 +124,14 @@
 		<groupHeader>
 			<band height="21">
 				<staticText>
-					<reportElement uuid="fb286551-bd8a-47a8-b9b9-a0aa7212fc2d" x="1" y="1" width="53" height="20"/>
+					<reportElement uuid="fb286551-bd8a-47a8-b9b9-a0aa7212fc2d" x="1" y="1" width="58" height="20"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Empresa:]]></text>
+					<text><![CDATA[Company:]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="0d11582f-7b3b-42e1-9f76-54893d3f8c9f" x="54" y="1" width="350" height="20"/>
+					<reportElement uuid="0d11582f-7b3b-42e1-9f76-54893d3f8c9f" x="61" y="1" width="350" height="20"/>
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
 				</textField>
@@ -149,7 +149,7 @@
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Sub Total Empresa:]]></text>
+					<text><![CDATA[Sub Total Company:]]></text>
 				</staticText>
 			</band>
 		</groupFooter>
@@ -160,12 +160,12 @@
 	<title>
 		<band height="57" splitType="Stretch">
 			<textField>
-				<reportElement uuid="9ee00cc0-5105-474f-afdd-dbb05f75c6ac" x="55" y="2" width="100" height="20"/>
+				<reportElement uuid="9ee00cc0-5105-474f-afdd-dbb05f75c6ac" x="61" y="2" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$P{organismo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="fccac3e7-d1fd-434a-9f52-de4714b35ed7" x="55" y="22" width="180" height="20"/>
+				<reportElement uuid="fccac3e7-d1fd-434a-9f52-de4714b35ed7" x="61" y="22" width="180" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$P{empresa}]]></textFieldExpression>
 			</textField>
@@ -180,31 +180,31 @@
 				<textFieldExpression><![CDATA[$P{finicio}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="f68dd38d-7926-4bc4-822b-ce4612e8f434" x="2" y="2" width="53" height="20"/>
+				<reportElement uuid="f68dd38d-7926-4bc4-822b-ce4612e8f434" x="2" y="2" width="59" height="20"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Organismo:]]></text>
+				<text><![CDATA[Organization:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="834190e8-1ac7-467a-8d44-e5fa2cc0ba68" x="2" y="22" width="53" height="20"/>
+				<reportElement uuid="834190e8-1ac7-467a-8d44-e5fa2cc0ba68" x="2" y="22" width="59" height="20"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Empresa:]]></text>
+				<text><![CDATA[Company:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="95b30738-22e6-421d-a809-5bcca23d2d60" x="647" y="22" width="53" height="20"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Hasta:]]></text>
+				<text><![CDATA[Unto:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="d46c30c2-4fe0-43b8-841c-d2190dc8103f" x="647" y="2" width="53" height="20"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Date:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="6ae765ed-8646-4f71-8729-e8edc88c34a5" x="283" y="37" width="239" height="20"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Resumen de Obligaciones de Cobros Pendientes]]></text>
+				<text><![CDATA[Rest tiler Unpadten Sorbys terma]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -235,42 +235,42 @@
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Más de 90]]></text>
+				<text><![CDATA[More to 90]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="a884d720-8b65-444f-998a-47064df1f06e" x="672" y="0" width="65" height="19"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[De 61 1 90]]></text>
+				<text><![CDATA[Of 61 to 90]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="55469474-c40d-4ef3-885d-9cb1de9e8472" x="606" y="0" width="65" height="19"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[De 31 a 60]]></text>
+				<text><![CDATA[Of 31 to 60]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="d9bdef88-6bdb-4771-9ef0-fd383f9e19ce" x="540" y="0" width="65" height="19"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Hasta 30]]></text>
+				<text><![CDATA[Unto 30]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="43b12c90-cc3e-4b06-b83d-ba384b62eb36" x="474" y="0" width="65" height="19"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Vencida]]></text>
+				<text><![CDATA[Deft]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="45b97480-26bc-4a28-8cc3-b63a61e6f004" x="406" y="0" width="65" height="19"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[A Término]]></text>
+				<text><![CDATA[Term]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -355,7 +355,7 @@
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total Cuentas:]]></text>
+				<text><![CDATA[Total Account:]]></text>
 			</staticText>
 		</band>
 	</summary>
