@@ -27,7 +27,6 @@ class Group {
 
     /**
      * Si debe comenzar en una nueva pagina.
-     * @todo No implementada.
      * @var boolean
      */
     private $isStartNewPage;
@@ -69,6 +68,12 @@ class Group {
      * @var array
      */
     public $parse = array();
+
+    /**
+     * Contiene la pagina donde se ha dibujado el header una vez.
+     * @var array
+     */
+    public $pageHeaderPrinted = array();
 
     /**
      * Construtor.

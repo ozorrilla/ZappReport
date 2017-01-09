@@ -157,7 +157,7 @@ class ZappReport extends HFPDF
     public $varexpr = array('/\$V\{PAGE_NUMBER\}/', '/\$V\{REPORT_COUNT\}/', '/\$V\{PAGE_COUNT\}/');
 
     /**
-     * Posicion del puntero que recorre los datos..
+     * Posicion del puntero que recorre los datos.
      * @var type int
      */
     public $REPORT_COUNT = 0;
@@ -342,27 +342,36 @@ class ZappReport extends HFPDF
      */
     public function load($name, $data, $parameters = NULL)
     {
-        //se carga el xml
-        $this->xml = simplexml_load_file("$this->path$name.jrxml");
+        if(file_exists($this->path."$name.jrxml"))
+        {
+            //se carga el xml
+            $xml_string = file_get_contents($this->path."$name.jrxml");
+            $this->xml = simplexml_load_string($xml_string);
 
-        //se actualizan los datos a mostrar
-        $this->values = $data;
+            //se actualizan los datos a mostrar
+            $this->values = $data;
 
-        //cantidad de elementos
-        $this->total = count($data);
+            //cantidad de elementos
+            $this->total = count($data);
 
-        //recolectamos los parametros
-        if ($parameters) {
-            $this->collectParameters($parameters);
+            //recolectamos los parametros
+            if ($parameters) {
+                $this->collectParameters($parameters);
+            }
+
+            //recolectamos las variables
+            $this->variables = $this->collectVariables($this->xml);
+
+            //parseamos el xml para llevalo a clases php
+            $this->parser();
+
+            return $this;
+        }
+        else
+        {
+            echo 'No se encontr&oacute; el reporte en la siguiente direcci&oacute;n: '.$this->path."$name.jrxml";
         }
 
-        //recolectamos las variables
-        $this->variables = $this->collectVariables($this->xml);
-
-        //parseamos el xml para llevalo a clases php
-        $this->parser();
-
-        return $this;
     }
 
     /**
@@ -662,7 +671,11 @@ class ZappReport extends HFPDF
                 }
             }
 
-            $plain = preg_replace('/\$' . $type . '\{' . $name . '\}/', $v == NULL ? 'NULL' : $v, $plain);
+            if (is_array($v)) {
+                return $v;//este puede ser el caso en que $v contenga un objeto
+            } else {
+                $plain = preg_replace('/\$' . $type . '\{' . $name . '\}/', $v == NULL ? 'NULL' : $v, $plain);
+            }
         }
 
         //evaluamos la expresion en php si existe

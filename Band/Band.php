@@ -280,16 +280,28 @@ class Band
             $result = $report->analyse($group->groupExpression(), $group->parse['groupExpression']);
 
             if ($result != $group->value('header')) {
+
+                if ($group->isStartNewPage()) {
+                    if ($report->PageNo() == 1 && !isset($group->pageHeaderPrinted[$report->PageNo()])) {
+                        //no saltar si es la primera pagina y nunca se ha rendereado en ella el grupo
+                    } else {
+                        //saltar siempre
+                        $report->AddPage($report->CurOrientation, $report->CurPageSize);
+                    }
+                }
+
                 $group->render('header');
 
                 $group->setValue('header', $result);
+
+                $group->pageHeaderPrinted[$report->PageNo()] = TRUE;
 
                 if ($report->index() == 0) {
                     $group->setValue('footer', $result);
                 }
 
                 //forzamos a los grupos a renderearse
-                for ($k = $i+1; $k < $total; $k++) {
+                for ($k = $i + 1; $k < $total; $k++) {
                     $report->groups[$k]->setValue('header', NULL);
                 }
             }
@@ -319,7 +331,7 @@ class Band
                 }
             }
 
-            if ($result != $group->value('footer') || $forceReset) {
+            if ($result != $group->value('footer') || $forceReset || !isset($report->values[$report->REPORT_COUNT])) {
                 $report->REPORT_COUNT--;
                 $group->render('footer');
                 $report->REPORT_COUNT++;

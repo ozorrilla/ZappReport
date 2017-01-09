@@ -58,7 +58,7 @@
 	<variable name="First_Letter" class="java.lang.String" resetType="Group" resetGroup="Country_First_letter">
 		<variableExpression><![CDATA[$evaluate = $values[$index]["SHIPCOUNTRY"] == NULL || strlen($values[$index]["SHIPCOUNTRY"]) == 0 ? "" : substr($values[$index]["SHIPCOUNTRY"], 0, 1);]]></variableExpression>
 	</variable>
-	<group name="Country_First_letter">
+	<group name="Country_First_letter" isStartNewPage="true">
 		<groupExpression><![CDATA[($F{SHIPCOUNTRY} == null ||
  $F{SHIPCOUNTRY}.length() == 0) ? "" : $F{SHIPCOUNTRY}.substring(0,1)]]></groupExpression>
 		<groupHeader>

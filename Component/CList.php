@@ -33,6 +33,19 @@ class CList extends Component
     public $total = 0;
 
     /**
+     * Nombre del dataset que contiene los datos a usar en el listado.
+     * @var int
+     */
+    public $dataset = '';
+
+    /**
+     * Expresion del datasource a usar cuando el dataset
+     * no se pase por el usuario.
+     * @var int
+     */
+    public $dataSource = '';
+
+    /**
      * {@inheritdoc}
      */
     public function __construct($data)
@@ -44,6 +57,10 @@ class CList extends Component
         // obtenemos el nombre del dataset
         $children = $list->list->children();
         $this->dataset = (string)$children[0]['subDataset'];
+
+        $this->dataSource = (string)$children[0]->dataSourceExpression;
+
+        $this->parse = ZappReport::parseExpression($this->dataSource);
 
         // coleccionamos los componentes de la lista
         $collect = ZappReport::collect($list->list->children('jr', TRUE)->listContents);
@@ -64,9 +81,13 @@ class CList extends Component
         // obtenemos los datos para el dataset utilizado
         // obtenemos los datos en la posicion actual del indice
         if (!isset($report->dataset[$this->dataset])) {
-            die ('No se ha configurado ningun dataset.');
+            //este dataset si existe pero no fue pasado por el usuario
+            //los datos se van a tomar de la tupla
+            $data = $report->analyse($this->dataSource, $this->parse);
         }
-        $data = $report->dataset[$this->dataset]->getDataInIndex($report->index());
+        else{
+            $data = $report->dataset[$this->dataset]->getDataInIndex($report->index());
+        }
 
         if ($data) {
             $y += $this->y();
@@ -88,7 +109,7 @@ class CList extends Component
                 $iPage = $mPage = $report->PageNo();
 
                 //metadata de la y en la banda
-                $hp = & $report->hp;
+                $hp = &$report->hp;
 
 
                 //metadata de la y en el frame
@@ -135,7 +156,7 @@ class CList extends Component
                         /**
                          * refactorizando
                          */
-                        $ip = & $hy[$report->PageNo()];
+                        $ip = &$hy[$report->PageNo()];
                         if ($ip['to'] < $my) {
                             $ip['to'] = $my;
                         }
